@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Game",
-    "path": "folders/Scripts/Game.yy",
+    "name": "Macro",
+    "path": "folders/Scripts/Macro.yy",
   },
   "resourceVersion": "1.0",
-  "name": "get_chance",
+  "name": "macro_battle",
   "tags": [],
   "resourceType": "GMScript",
 }

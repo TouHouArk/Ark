@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "just drawing(slower)",
-    "path": "folders/Scripts/TEXT_SPEC/just drawing(slower).yy",
+    "path": "folders/Scripts/PluginTextSpec/just drawing(slower).yy",
   },
   "resourceVersion": "1.0",
   "name": "draw_text_special",

@@ -64,7 +64,7 @@ healling_cd = -1;
 heal = 0;
 heal_time = 0;
 autoattack = false;
-dmgtype = 1;
+dmgtype = damage_type.Art;
 dmgtype_o = 1;
 //无人机初始化
 orbit_num = 2;

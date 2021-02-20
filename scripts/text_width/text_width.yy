@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "advanced",
-    "path": "folders/Scripts/TEXT_SPEC/drawing based on surface(faster)/advanced.yy",
+    "path": "folders/Scripts/PluginTextSpec/drawing based on surface(faster)/advanced.yy",
   },
   "resourceVersion": "1.0",
   "name": "text_width",

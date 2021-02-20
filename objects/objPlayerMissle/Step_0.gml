@@ -24,6 +24,6 @@ if auto_found{
 if auto_angle{
 	image_angle = direction + auto_angle_d;
 }
-if shadow >= 0{
+if shadow != -1{
 	(create_shadow(shadow)).image_blend = image_blend;
 }

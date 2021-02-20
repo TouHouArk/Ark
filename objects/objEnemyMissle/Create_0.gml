@@ -1,7 +1,7 @@
 dmg = 1000;
 dmg_buff = 0.2;
 high = 20;
-dmgtype = 0;
+dmgtype = damage_type.Physic;
 range = 20;
 sound = -1;
 

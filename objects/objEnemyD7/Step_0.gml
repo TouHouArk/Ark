@@ -14,7 +14,7 @@ switch(type){
 				_i.image_yscale = 4.5;
 				_i.image_angle = _i.direction + 90;
 				_i.dmg = atk/2;
-				_i.dmgtype = 1;
+				_i.dmgtype = damage_type.Art;
 				_i.sound = e_imp_uav_nlaser;
 				speed = 0;
 			}

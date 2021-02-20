@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "tags",
-    "path": "folders/Scripts/TEXT_SPEC/tags.yy",
+    "path": "folders/Scripts/PluginTextSpec/tags.yy",
   },
   "resourceVersion": "1.0",
   "name": "ts_line",

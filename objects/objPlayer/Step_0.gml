@@ -22,7 +22,7 @@ if stuck <= 0 && !global.froze{
 }
 
 if (keyboard_check(vk_space) || autoattack) && _s <= 0 && stun <= 0 && !global.froze{
-	if skill_sptype[skillselect] = 1 && skill = -1{
+	if skill_sptype[skillselect] = sp_type.Attacked && skill = -1{
 		skill_sp[skillselect] = min(skill_sp[skillselect]+skill_spspd,skill_spneed[skillselect]);
 	}
 	event_user(0);
@@ -46,7 +46,7 @@ if hp <= 0{
 			lifepoint -= 1;
 		}
 		inv = 120;
-		if skill != -1{event_user(2);}
+		if skill != -1{event_user(3);}
 		hp = maxhp;
 		x = 150;
 		y = 280;
@@ -64,7 +64,7 @@ if hp <= 0{
 }else if !global.froze{
 	hp = min(hp+autoregen/room_speed,maxhp);
 	if skill = -1{
-		if skill_sptype[skillselect] = 0{
+		if skill_sptype[skillselect] = sp_type.Auto{
 			skill_sp[skillselect] = min(skill_sp[skillselect]+skill_spspd/room_speed*2,skill_spneed[skillselect]);
 		}
 		
@@ -91,7 +91,7 @@ if hp <= 0{
 				skill_time = 9999;
 			}
 			audio_play_sound(b_char_atkboost,1,false);
-			event_user(1);
+			event_user(2);
 			if global.hard_debuff2{
 				lifepoint = max(1,lifepoint - 1);
 			}
@@ -100,7 +100,7 @@ if hp <= 0{
 	}else if skill_duration[skillselect] != -1{
 		skill_time -= 1;
 		if skill_time <= 0{
-			event_user(2);
+			event_user(3);
 		}
 	}
 }

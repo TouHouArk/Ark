@@ -1,10 +1,10 @@
 {
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Scripts.yy",
+    "name": "Notes",
+    "path": "folders/Notes.yy",
   },
   "resourceVersion": "1.1",
-  "name": "Note1",
+  "name": "SkillNote",
   "tags": [],
   "resourceType": "GMNotes",
 }

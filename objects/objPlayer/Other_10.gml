@@ -10,7 +10,7 @@ switch(skill){
 			if skill = 0{
 				_i.dmg *= skill_dmgscale;
 			}
-			_i.dmgtype = 1;
+			_i.dmgtype = damage_type.Art;
 			_i.sound = p_imp_amiyamag_n;
 		}
 	break;
@@ -24,7 +24,7 @@ switch(skill){
 			_i.direction = irandom_range(30,150);
 			_i.image_angle = _i.direction - 90;
 			_i.dmg = round(atk*1.6)*skill_dmgscale;
-			_i.dmgtype = 1;
+			_i.dmgtype = damage_type.Art;
 			_i.sound = p_imp_amiyamag_n;
 		}
 	break;
@@ -36,7 +36,7 @@ switch(skill){
 		_i.gravity = 0.1;
 		_i.gravity_direction = 90;
 		_i.dmg = atk*shoot_bullet*skill_dmgscale;
-		_i.dmgtype = 2;
+		_i.dmgtype = damage_type.Real;
 		_i.sound = p_imp_amiyamag_h;
 	break;
 	
@@ -51,7 +51,7 @@ switch(skill){
 			_i.friction = 0.1;
 			_i.lifetime = 90;
 			_i.dmg = atk*skill_dmgscale;
-			_i.dmgtype = 0;
+			_i.dmgtype = damage_type.Physic;
 		}
 	break;
 	//红移
@@ -68,7 +68,7 @@ switch(skill){
 			}
 			_i.image_angle = _i.direction-90;
 			_i.dmg = atk*3.4*skill_dmgscale;
-			_i.dmgtype = 0;
+			_i.dmgtype = damage_type.Physic;
 		}
 	break;
 	//狼魂
@@ -78,10 +78,10 @@ switch(skill){
 		for(var i = 0;i < shoot_bullet;i++){
 			var _i = instance_create_depth(x,y-10,10,objPlayerMissle);
 			_i.sprite_index = sprBLappland;
-			_i.direction = 90;
+			_i.direction = 90-(shoot_bullet-1)*5+i*10;
 			_i.speed = 4;
 			_i.dmg = atk*skill_dmgscale;
-			_i.dmgtype = 1;
+			_i.dmgtype = damage_type.Art;
 			_i.auto_found = true;
 			_i.dspd = 8;
 			if i < ds_list_size(enemy_list)-1{
@@ -90,8 +90,9 @@ switch(skill){
 				_i.auto_target = -1
 			}
 			_i.auto_angle = true;
-			_i.shadow = 1;
-			_i.image_blend = make_color_hsv(0,0,55+i/(shoot_bullet-1)*200)
+			_i.shadow = objEShadowScale;
+			_i.boom = false;
+			_i.image_blend = make_color_hsv(0,0,55+(1-i/(shoot_bullet-1))*200)
 			//audio_play_sound(p_atk_silver_n,1,false);
 		}
 		ds_list_destroy(enemy_list)
@@ -101,7 +102,7 @@ switch(skill){
 		var _i = instance_create_depth(x,y-10,10,objBPlayerRangeSkill);
 		_i.sprite_index = sprBSliverash;
 		_i.dmg = atk*skill_dmgscale;
-		_i.dmgtype = 0;
+		_i.dmgtype = damage_type.Physic;
 		_i._t = 10;
 		_i._t2 = 30;
 		_i.scale1_from = 0.1;
@@ -117,7 +118,7 @@ switch(skill){
 		var _i = instance_create_depth(x,y,-10,objBPlayerRangeSkill);
 		_i.sprite_index = sprBGlaucas;
 		_i.dmg = atk*8*skill_dmgscale;
-		_i.dmgtype = 1;
+		_i.dmgtype = damage_type.Art;
 		_i.stun_addon = 6*room_speed/2;
 		_i._t = 5;
 		_i._t2 = 50;

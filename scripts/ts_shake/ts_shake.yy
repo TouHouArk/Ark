@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "effects",
-    "path": "folders/Scripts/TEXT_SPEC/tags/effects.yy",
+    "path": "folders/Scripts/PluginTextSpec/tags/effects.yy",
   },
   "resourceVersion": "1.0",
   "name": "ts_shake",

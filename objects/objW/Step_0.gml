@@ -32,13 +32,13 @@ if !ast{
 		if supermove && (abs(x-tgx) >= 1 || abs(y-tgy) >= 1){
 				x += (tgx-x)/4*3;
 				y += (tgy-y)/4*3;
-				create_shadow(0);
+				create_shadow(objEShadowAlpha);
 		}else if abs(x-tgx) >= 1 || abs(y-tgy) >= 1{
 				repeat(2){
 					x += sign(tgx-x);
 					y += sign(tgy-y);
 				}
-				(create_shadow(0)).image_alpha = 0.5;
+				(create_shadow(objEShadowAlpha)).image_alpha = 0.5;
 		}else{
 			x = tgx;
 			y = tgy;

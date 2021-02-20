@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "TEXT_SPEC",
-    "path": "folders/Scripts/TEXT_SPEC.yy",
+    "name": "PluginTextSpec",
+    "path": "folders/Scripts/PluginTextSpec.yy",
   },
   "resourceVersion": "1.0",
   "name": "ts_delete_lastchar",

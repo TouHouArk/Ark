@@ -32,7 +32,7 @@ switch(type){
 				image_xscale = 64/32;
 				image_yscale = 64/32;
 				dmg = other.atk;
-				dmgtype = 0;
+				dmgtype = damage_type.Physic;
 				alarm[0] = 1;
 			}
 			(instance_create_depth(x,y,depth-10,objBoomBuff)).maxr = 64;
