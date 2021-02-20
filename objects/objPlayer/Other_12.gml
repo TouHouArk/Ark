@@ -48,12 +48,15 @@ switch(skill){
 		atkbuff += skill_tag[0];
 	break;
 	case 11: 
-		skill_tag[0] = room_speed/2/shoot_cd*0.5 - shootbuff;
-		shootbuff += skill_tag[0];
 		_s = 0;
 		autoattack = true;
 		if global.fun{
-			skill_time = 600;
+			skill_time = 240;
+			skill_tag[0] = 2/shoot_cd - shootbuff;
+			shootbuff += skill_tag[0];
+		}else{
+			skill_tag[0] = room_speed/2/shoot_cd*0.5 - shootbuff;
+			shootbuff += skill_tag[0];
 		}
 	break;
 	case 12:

@@ -106,7 +106,7 @@ switch(skill){
 		_i._t = 10;
 		_i._t2 = 30;
 		_i.scale1_from = 0.1;
-		_i.scale2_from = 0.2;
+		_i.scale2_from = 0;
 		_i.scale1_mid = 1;
 		_i.scale2_mid = 1;
 		_i.scale1_to = 1.2;

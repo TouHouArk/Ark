@@ -112,7 +112,7 @@ function item_name_init(){
 	global.item_name[109] = "钝爪-怒目";
 	global.item_name[110] = "折戟-跃浪击";
 	global.item_name[111] = "折戟-红移";
-	global.item_name[112] = "折戟-星辉剑";
+	global.item_name[112] = "折戟-狼魂";
 	global.item_name[113] = "折戟-至高之术";
 	global.item_name[114] = "折戟-肉斩骨断";
 	global.item_name[115] = "折戟-真银斩";

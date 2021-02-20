@@ -89,7 +89,7 @@ function skill_init(){
 	global.skill_casttype[10] = cast_type.AutoWhenDead;
 	global.skill_charge[10] = 1;
 	global.skill_name[11] = "红移";
-	global.skill_desc[11] = "立即投掷<skill>4x飞刀</>,每把造成相当于<skill>攻击力340%</>的物理伤害<br><ps>技能攻击回复</>";
+	global.skill_desc[11] = "投掷4次<skill>1x飞刀</>,每把造成相当于<skill>攻击力340%</>的物理伤害<br><ps>技能攻击回复</>";
 	global.skill_spstart[11] = 5;
 	global.skill_spneed[11] = 11;
 	global.skill_duration[11] = 2;
