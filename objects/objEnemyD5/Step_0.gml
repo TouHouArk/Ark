@@ -8,7 +8,7 @@ switch(type){
 			if _a = _t+15{
 				sprite_index = sprEnemyD5End;
 				xp = 5;
-				var _i = instance_create_depth(x,y,10,objEnemyMissle);
+				var _i = instance_create_depth(x,y,depth+10,objEnemyMissle);
 				_i.sprite_index = missle;
 				_i.speed = 3;
 				_i.direction = point_direction(x,y,objPlayer.x,objPlayer.y);

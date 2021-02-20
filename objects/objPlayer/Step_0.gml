@@ -25,6 +25,9 @@ if (keyboard_check(vk_space) || autoattack) && _s <= 0 && stun <= 0 && !global.f
 	if skill_sptype[skillselect] = sp_type.Attacked && skill = -1{
 		skill_sp[skillselect] = min(skill_sp[skillselect]+skill_spspd,skill_spneed[skillselect]);
 	}
+	if skill_casttype[skillselect] = cast_type.AutoWhenAttack{
+		event_user(1);
+	}
 	event_user(0);
 	_s = shoot_cd;
 }
@@ -40,20 +43,33 @@ if undead > 0 && hp < 1{
 if hp <= 0{
 	hp = 0;
 	if lifepoint > 1{
+		//dead
 		if semi_lifepoint > semi_lifepoint_used{
 			semi_lifepoint_used += 1;
 		}else{
 			lifepoint -= 1;
 		}
 		inv = 120;
-		if skill != -1{event_user(3);}
+		audio_play_sound(b_char_dead,4,false);
+		if global.hard_debuff3{
+			global.luck_rate = max(0.1,global.luck_rate-0.2);
+		}
+		if skill_casttype[skillselect] = cast_type.AutoWhenDead{
+			event_user(1);
+		}
+		if skill != -1{
+			skill_time = 0;
+			event_user(3);
+		}
+		
+		//respawn
 		hp = maxhp;
 		x = 150;
 		y = 280;
 		stun = 0;
-		audio_play_sound(b_char_dead,4,false);
-		if global.hard_debuff3{
-			global.luckrate = max(0.1,global.luckrate-0.2);
+		stuck = 0;
+		if skill_casttype[skillselect] = cast_type.AutoWhenRespawn{
+			event_user(1);
 		}
 	}else{
 		audio_stop_all();
@@ -62,6 +78,9 @@ if hp <= 0{
 		game_restart();
 	}
 }else if !global.froze{
+	if hp <= maxhp/2 && skill_casttype[skillselect] = cast_type.AutoWhenHPLow{
+		event_user(1);
+	}
 	hp = min(hp+autoregen/room_speed,maxhp);
 	if skill = -1{
 		if skill_sptype[skillselect] = sp_type.Auto{
@@ -75,32 +94,25 @@ if hp <= 0{
 		
 		if keyboard_check_pressed(ord("S")){
 			skillselect = (skillselect + 1) mod 3;
-		}else if ((keyboard_check_pressed(ord("X")) && skill_casttype[skillselect] = 0) || skill_casttype[skillselect] = 1) && (skill_sp[skillselect] = skill_spneed[skillselect] || skill_charged[skillselect] >= 1){
-			skill = skill_id[skillselect];
-			if skill_charged[skillselect] >= 1{
-				skill_charged[skillselect] -= 1;
-			}else{
-				skill_sp[skillselect] = 0;
-			}
-			skill_effect = instance_create_depth(x,y,depth-1,objESkillNormal);
-			skill_effect.target = id;
-			if skill_duration[skillselect] != -1{
-				skill_time = skill_duration[skillselect]*room_speed/2;
-				skill_effect.alarm[0] = skill_duration[skillselect]*room_speed/2;
-			}else{
-				skill_time = 9999;
-			}
-			audio_play_sound(b_char_atkboost,1,false);
-			event_user(2);
-			if global.hard_debuff2{
-				lifepoint = max(1,lifepoint - 1);
-			}
-			level_refresh();
+		}else if ((keyboard_check_pressed(ord("X")) && skill_casttype[skillselect] = cast_type.Cast) || skill_casttype[skillselect] = cast_type.Auto){
+			event_user(1);
 		}
 	}else if skill_duration[skillselect] != -1{
 		skill_time -= 1;
 		if skill_time <= 0{
 			event_user(3);
+		}
+	}
+	
+	if y <= 120{
+		with(objDropedPoint){acce = 1;range = -1;}
+	}
+	
+	if instance_exists(objEnemyBullet) && inv = 0{
+		var _bt = instance_nearest(x,y,objEnemyBullet);
+		if collision_circle(x+0.5,y+0.5,6,_bt,false,true) && !place_meeting(x,y,_bt){
+			part_particles_create(global.part_system,(x+_bt.x)/2,(y+_bt.y)/2,part_nearbullet,5);
+			score += 5;
 		}
 	}
 }

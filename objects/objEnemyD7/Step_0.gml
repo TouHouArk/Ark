@@ -7,7 +7,7 @@ switch(type){
 		}else if _a >= _t{
 			if _a = _t{_dr = point_direction(x+lengthdir_x(10,image_angle-90),y+lengthdir_y(10,image_angle-90),objPlayer.x,objPlayer.y)}
 			if _a = _t + 5 || _a = _t+8{
-				var _i = instance_create_depth(x+lengthdir_x(10,image_angle-90),y+lengthdir_y(10,image_angle-90),10,objEnemyBullet);
+				var _i = instance_create_depth(x+lengthdir_x(10,image_angle-90),y+lengthdir_y(10,image_angle-90),depth+10,objEnemyBullet);
 				_i.sprite_index = sprBD7;
 				_i.speed = 6;
 				_i.direction = _dr;

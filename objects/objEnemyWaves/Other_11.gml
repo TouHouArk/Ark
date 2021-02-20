@@ -109,15 +109,15 @@ if _a >= 0 && _a <= 1200{
 		_i._t = 360;
 		_i.lifetime = 800;
 	}
-	if _a mod 120 = 60{
+	if _a mod 300 = 60{
 		var _i = instance_create_depth(150,-20,0,objEnemyD7);
-		_i.dir = -30;
-		_i.lifetime = 800;
+		_i.dir = -20;
+		_i.lifetime = 1600;
 	}
-	if _a mod 120 = 0{
+	if _a mod 300 = 0{
 		var _i = instance_create_depth(150,-20,0,objEnemyD7);
-		_i.dir = 210;
-		_i.lifetime = 800;
+		_i.dir = 200;
+		_i.lifetime = 1600;
 	}
 	
 	if _a = 4000{

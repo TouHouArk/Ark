@@ -77,7 +77,7 @@ switch(type){
 					}
 					if _a mod 6 = 0{
 						for(var i = 0;i < 3;i++){
-							var _i = instance_create_depth(x,y+30-i*5,10,objEnemyBullet);
+							var _i = instance_create_depth(x,y+30-i*5,depth+10,objEnemyBullet);
 							_i.sprite_index = sprBD2;
 							_i.speed = 4;
 							_i.direction = 270;

@@ -8,7 +8,7 @@ if lifetime != 0{
 		high_o = high;
 	}
 	(instance_create_depth(x,y,depth-10,objBoomBuff)).maxr = max(sprite_width,sprite_height)/2;
-	score += 100;
+	score += 100+500*elite;
 	global.enemy_killed += 1;
 	drop_point(xp);
 	//objPlayer.xp += xp*global.exp_rate;

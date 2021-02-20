@@ -70,3 +70,11 @@ dmgtype_o = 1;
 orbit_num = 2;
 orbits = ds_list_create();
 orbit_refresh();
+//擦弹特效定义
+part_nearbullet = part_type_create();
+part_type_life(part_nearbullet,30,45);
+part_type_gravity(part_nearbullet,0.5,270);
+part_type_speed(part_nearbullet,3,5,0,0);
+part_type_direction(part_nearbullet,30,150,0,0);
+part_type_color1(part_nearbullet,c_white);
+part_type_alpha2(part_nearbullet,1,0);

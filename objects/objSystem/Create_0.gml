@@ -104,6 +104,9 @@ for(var i = 0;i < ds_list_size(global.enable_items);i++){
 		default : ds_list_add(global.items_gacha_n,m);break;
 	}
 }
+
+global.part_system = part_system_create();
+
 item_name_init();
 item_desc_init();
 skill_init();
