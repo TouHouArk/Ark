@@ -1,0 +1,11 @@
+event_inherited();
+type = 0;
+spd = 0.3;
+dir = 270;
+hp = 5000+global.drone_level*5000;
+atk = 0;
+defence = 150;
+resist = 20;
+depth = -10;
+lifetime = 1400;
+xp = 0;

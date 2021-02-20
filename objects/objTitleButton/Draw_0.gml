@@ -1,0 +1,14 @@
+draw_sprite_pos(sprite_index,mode,x+dx1,y+dy1,x+dx2,y+dy2,x+dx3,y+dy3,x+dx4,y+dy4,alp*alp_c);
+/*
+draw_set_color(c_red);
+draw_set_alpha(1);
+draw_line(x+dx1,y+dy1,x+dx2,y+dy2);
+draw_line(x+dx2,y+dy2,x+dx3,y+dy3);
+draw_line(x+dx3,y+dy3,x+dx4,y+dy4);
+draw_line(x+dx4,y+dy4,x+dx1,y+dy1);
+draw_line(x+dx1,y+dy1,x+mdx,y+mdy);
+draw_line(x+dx2,y+dy2,x+mdx,y+mdy);
+draw_line(x+dx3,y+dy3,x+mdx,y+mdy);
+draw_line(x+dx4,y+dy4,x+mdx,y+mdy);
+draw_circle(x+mdx,y+mdy,5,false)
+draw_set_color(c_white);*/

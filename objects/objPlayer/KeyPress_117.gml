@@ -1,0 +1,1 @@
+item_add(104+irandom(47));

@@ -1,0 +1,1 @@
+draw_sprite_ext(sprESkillAmiya2,-1,x,y+dy1,image_xscale,image_yscale,image_angle,c_white,image_alpha);
