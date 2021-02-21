@@ -378,7 +378,7 @@ function text_format() {
 	            {
 	                var symb=string_char_at(text, i);
 	                word+=symb
-	                if symb=" " or symb="," or symb="，" or symb="、" or symb="(" or (symb=")" and psymb!="(")
+	                if symb=" " or symb="," or symb=";" or symb="，" or symb="、" or symb="(" or (symb=")" and psymb!="(")
 	                or (symb="]" and psymb!="[") or symb="["
 	                    break
 	            }

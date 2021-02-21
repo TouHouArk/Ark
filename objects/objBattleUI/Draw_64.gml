@@ -59,6 +59,11 @@ if global.showgui{
 		draw_set_color(c_orange)
 		draw_rectangle(1029,387,1156,514,false);
 	}
+	if objPlayer.skill_charged[objPlayer.skillselect] >= 1{
+		var _charge = objPlayer.skill_charged[objPlayer.skillselect]+(objPlayer.skill_sp[objPlayer.skillselect] == objPlayer.skill_spneed[objPlayer.skillselect])
+		draw_sprite_ext(sprSkillChargeCircle,0,1157,387,0.5,0.5,_a/2,c_white,1);
+		draw_sprite_ext(sprSkillCharge,_charge,1157,387,1,1,0,c_white,1);
+	}
 	draw_set_alpha(1);
 	draw_sprite(sprUISkillBoard,0,1013,517);
 	draw_set_valign(fa_middle);

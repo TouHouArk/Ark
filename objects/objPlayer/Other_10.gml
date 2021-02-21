@@ -7,7 +7,7 @@ switch(skill){
 			_i.sprite_index = sprBAmiya1;
 			_i.vspeed = -5;
 			_i.dmg = atk;
-			if skill = 0{
+			if skill != -1{
 				_i.dmg *= skill_dmgscale;
 			}
 			_i.dmgtype = damage_type.Art;
@@ -40,6 +40,24 @@ switch(skill){
 		_i.sound = p_imp_amiyamag_h;
 	break;
 	
+	//高效冲击
+	case 7:
+		for(var i = 0;i < shoot_bullet;i++){
+			var _i = instance_create_depth(x+(-(shoot_bullet-1)*0.5+i)*(10-keyboard_check(vk_shift)*5),y-10+abs(i-(shoot_bullet-1)/2)*8,10,objPlayerBullet);
+			_i.sprite_index = sprBBagpipe;
+			_i.vspeed = -7;
+			_i.dmg = atk*2*skill_dmgscale;
+			_i.dmgtype = damage_type.Physic;
+		}
+		_s = 0.25*room_speed/2;
+	break;
+	//剑雨
+	case 8:
+		var _i = instance_create_depth(x,y,10,objBTexas1);
+		_i.dmg = atk*1.7*skill_dmgscale;
+		_i.dmgtype = damage_type.Art;
+		_i.daze_addon = 3*room_speed/2;
+	break;
 	//怒目
 	case 9:
 		for(var i = 0;i < shoot_bullet;i++){
@@ -70,6 +88,7 @@ switch(skill){
 			_i.dmg = atk*3.4*skill_dmgscale;
 			_i.dmgtype = damage_type.Physic;
 		}
+		_s = 0.5*room_speed/2;
 	break;
 	//狼魂
 	case 12:
@@ -131,7 +150,6 @@ switch(skill){
 		_i.scale1_to = 1.1;
 		_i.scale2_to = 2;
 		_i.image_angle = irandom(3)*90;
-		_i.hit_effect = objEEnemyStun;
 		//audio_play_sound(p_atk_silver_n,1,false);
 	break;
 }

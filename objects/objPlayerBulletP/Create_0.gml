@@ -5,3 +5,7 @@ sound = -1;
 
 meeting_objects = ds_list_create();
 lifetime = -1;
+
+daze_addon = 0;
+stun_addon = 0;
+ctrl_addon = 0;

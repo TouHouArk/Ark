@@ -4,7 +4,7 @@ switch(skill){
 		atkspd -= 90;
 	break;
 	case 2:
-		stun = 10*room_speed/2;
+		disarm = 10*room_speed/2;
 	break;
 	case 3:
 		hp = 0;
@@ -34,7 +34,6 @@ switch(skill){
 		atkbuff -= skill_tag[0];
 	break;
 	case 11: 
-		shootbuff -= skill_tag[0];
 		autoattack = false;
 		if global.fun{
 			with(objPlayerBullet){
@@ -58,7 +57,7 @@ switch(skill){
 	break;
 	case 14:
 		atkbuff -= skill_tag[0];
-		stun = 10*room_speed/2;
+		disarm = 10*room_speed/2;
 	break;
 	case 15:
 		defencebuff -= skill_tag[0];
@@ -166,3 +165,6 @@ if skill_effect != -1 && instance_exists(skill_effect){
 level_refresh();
 orbit_refresh();
 skill = -1;
+if skill_casttype[skillselect] = cast_type.AutoWhenAttack{
+	_s = shoot_cd;
+}

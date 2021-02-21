@@ -19,4 +19,3 @@ outter_index = 0;
 inner_index = 1;
 fade_index = -1;
 fade_alp = 0;
-hit_effect = -1;

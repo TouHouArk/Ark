@@ -9,3 +9,5 @@ resist = 40;
 depth = -10;
 lifetime = 1400;
 xp = 0;
+
+daze = -1;

@@ -18,10 +18,10 @@ switch(skill){
 	break;
 	
 	case 4:
-		stun = skill_duration[skillselect]*room_speed/2;
+		disarm = skill_duration[skillselect]*room_speed/2;
 		healling_cd = round(room_speed/2);
 		heal = atk*1.5;
-		heal_time = stun;
+		heal_time = disarm;
 		with(skill_effect){event_user(1);}
 	break;
 	case 5:
@@ -32,10 +32,15 @@ switch(skill){
 		skill_tag[0] = atkbuff*0.7;
 		atkbuff += skill_tag[0];
 	break;
-	case 7: //WIP
+	case 7:
 	break;
 	case 8: //WIP
 		global.money += 2;
+		event_user(0);
+		disarm = skill_duration[skillselect]*room_speed/2;
+		if global.fun{
+			skill_sp[skillselect] = skill_spneed[skillselect]-1;
+		}
 	break;
 	case 9:
 		skill_tag[0] = atkbuff*1.2;
@@ -48,15 +53,9 @@ switch(skill){
 		atkbuff += skill_tag[0];
 	break;
 	case 11: 
-		_s = 0;
 		autoattack = true;
 		if global.fun{
 			skill_time = 240;
-			skill_tag[0] = 2/shoot_cd - shootbuff;
-			shootbuff += skill_tag[0];
-		}else{
-			skill_tag[0] = room_speed/2/shoot_cd*0.5 - shootbuff;
-			shootbuff += skill_tag[0];
 		}
 	break;
 	case 12:
@@ -92,7 +91,7 @@ switch(skill){
 		hp = maxhp;
 	break;
 	case 17:
-		stun = skill_duration[skillselect]*room_speed/2;
+		disarm = skill_duration[skillselect]*room_speed/2;
 		skill_tag[0] = defencebuff*2.3;
 		defencebuff += skill_tag[0];
 		skill_tag[1] = maxhp*0.05;
@@ -111,7 +110,7 @@ switch(skill){
 	break;
 	case 21:
 		inv = 10*room_speed/2;
-		stun = 10*room_speed/2;
+		disarm = 10*room_speed/2;
 		skill_tag[0] = shootbuff*-0.3;
 		shootbuff += skill_tag[0];
 		skill_tag[1] = atkbuff*2.4;
@@ -160,7 +159,7 @@ switch(skill){
 		atkspd += 100;
 	break;
 	case 30:
-		stun = skill_duration[skillselect]*room_speed/2;
+		disarm = skill_duration[skillselect]*room_speed/2;
 		stuck = skill_duration[skillselect]*room_speed/2;
 	break;
 	case 31:
@@ -260,5 +259,6 @@ switch(skill){
 		atkbuff += skill_tag[0];
 	break;
 }
+_s = 0;
 level_refresh();
 orbit_refresh();

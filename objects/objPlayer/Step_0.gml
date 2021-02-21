@@ -21,15 +21,15 @@ if stuck <= 0 && !global.froze{
 	y = clamp(y+input_y*input_speed,35,400-35);
 }
 
-if (keyboard_check(vk_space) || autoattack) && _s <= 0 && stun <= 0 && !global.froze{
+if (keyboard_check(vk_space) || autoattack) && _s <= 0 && disarm <= 0 && !global.froze{
 	if skill_sptype[skillselect] = sp_type.Attacked && skill = -1{
 		skill_sp[skillselect] = min(skill_sp[skillselect]+skill_spspd,skill_spneed[skillselect]);
 	}
 	if skill_casttype[skillselect] = cast_type.AutoWhenAttack{
 		event_user(1);
 	}
-	event_user(0);
 	_s = shoot_cd;
+	event_user(0);
 }
 
 if _s > 0{
@@ -66,7 +66,7 @@ if hp <= 0{
 		hp = maxhp;
 		x = 150;
 		y = 280;
-		stun = 0;
+		disarm = 0;
 		stuck = 0;
 		if skill_casttype[skillselect] = cast_type.AutoWhenRespawn{
 			event_user(1);
@@ -87,7 +87,7 @@ if hp <= 0{
 			skill_sp[skillselect] = min(skill_sp[skillselect]+skill_spspd/room_speed*2,skill_spneed[skillselect]);
 		}
 		
-		if skill_sp[skillselect] = skill_spneed[skillselect] && skill_charge[skillselect] > 1 && skill_charged[skillselect] < skill_charge[skillselect]{
+		if skill_sp[skillselect] = skill_spneed[skillselect] && skill_charge[skillselect] > 1 && skill_charged[skillselect] < skill_charge[skillselect] - 1{
 			skill_charged[skillselect] += 1;
 			skill_sp[skillselect] = 0;
 		}
@@ -130,8 +130,8 @@ if heal_time > 0{
 	}
 	heal_time -= 1;
 }
-if stun > 0{
-	stun -= 1;
+if disarm > 0{
+	disarm -= 1;
 }
 if stuck > 0{
 	stuck -= 1;

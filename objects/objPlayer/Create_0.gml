@@ -55,7 +55,7 @@ get_skill(2,3);
 skill_tag[0] = 0;
 skill_effect = -1;
 //特殊数据初始化
-stun = 0;
+disarm = 0;
 stuck = 0;
 inv = 0;
 undead = 0;

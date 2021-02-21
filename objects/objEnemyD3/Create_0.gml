@@ -12,5 +12,6 @@ lifetime = -1;
 
 action = 0;
 xp = 200;
+daze = -1;
 stun = -1;
 ctrl = -1;

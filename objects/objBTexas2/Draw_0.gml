@@ -1,0 +1,1 @@
+draw_sprite_ext(sprBTexas2,image_index,x+lengthdir_x(ds*scale*10,ang+180),y+lengthdir_y(ds*scale*10,ang+180),scale,1,ang,c_white,alp)

@@ -13,5 +13,7 @@ spdbuff = 1;
 _t = 60;
 xp = 1;
 
+daze = 0;
 stun = 0;
 ctrl = 0;
+anti_search = false;
