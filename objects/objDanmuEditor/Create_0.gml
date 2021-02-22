@@ -36,7 +36,8 @@ for(var i = 0;i<= 10;i++){
 
 double = false;
 sqrt_wave = false;
-gra_with_dire = false;
+img_with_dire = false;
+larger = false;
 
 _a = -1;
 

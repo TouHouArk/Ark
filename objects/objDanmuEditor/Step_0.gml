@@ -36,6 +36,16 @@ if _a mod dt = 0{
 				_i.jump_dspd_a[j] = -_i.jump_dspd_a[j];
 			}
 		}
+		if sqrt_wave{
+			var _ang = abs(45-((_a/dt*aspd + 45) mod 90));
+			var _arg = 1/dcos(_ang);
+			_i.speed *= _arg;
+			_i.friction *= _arg;
+			for(var j = 0;j < d_jump_times;j++){
+				_i.jump_speed[j] *= _arg;
+				_i.jump_friction[j] *= _arg;
+			}
+		}
 		_i.dmg = atk;
 		_i.dmgtype = damage_type.Physic;
 	}
