@@ -1,6 +1,7 @@
 image_speed = 1;
 _s = 0;
 high = 20;
+point_alpha = 0;
 //基础数据初始化
 level = 1;
 move_speed = 2;

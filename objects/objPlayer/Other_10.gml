@@ -3,7 +3,7 @@ switch(skill){
 	//普通攻击
 	default:
 		for(var i = 0;i < shoot_bullet;i++){
-			var _i = instance_create_depth(x+(-(shoot_bullet-1)*0.5+i)*(10-keyboard_check(vk_shift)*5),y-10+abs(i-(shoot_bullet-1)/2)*5,10,objPlayerBullet);
+			var _i = instance_create_depth(x+(-(shoot_bullet-1)*0.5+i)*(10-keyboard_check(vk_shift)*5),y-10+abs(i-(shoot_bullet-1)/2)*5,global.bullet_depth,objPlayerBullet);
 			_i.sprite_index = sprBAmiya1;
 			_i.vspeed = -5;
 			_i.dmg = atk;
@@ -18,7 +18,7 @@ switch(skill){
 	//精神爆发
 	case 2 :
 		for(var i = 0;i < shoot_bullet*3;i++){
-			var _i = instance_create_depth(x,y-10,10,objPlayerBullet);
+			var _i = instance_create_depth(x,y-10,global.bullet_depth,objPlayerBullet);
 			_i.sprite_index = sprBAmiya2;
 			_i.speed = 2.8+irandom(4)/10;
 			_i.direction = irandom_range(30,150);
@@ -30,7 +30,7 @@ switch(skill){
 	break;
 	//奇美拉
 	case 3:
-		var _i = instance_create_depth(x,y-10,10,objPlayerBullet);
+		var _i = instance_create_depth(x,y-10,global.bullet_depth,objPlayerBullet);
 		_i.sprite_index = sprBAmiya2;
 		_i.vspeed = -3;
 		_i.gravity = 0.1;
@@ -43,7 +43,7 @@ switch(skill){
 	//高效冲击
 	case 7:
 		for(var i = 0;i < shoot_bullet;i++){
-			var _i = instance_create_depth(x+(-(shoot_bullet-1)*0.5+i)*(10-keyboard_check(vk_shift)*5),y-10+abs(i-(shoot_bullet-1)/2)*8,10,objPlayerBullet);
+			var _i = instance_create_depth(x+(-(shoot_bullet-1)*0.5+i)*(10-keyboard_check(vk_shift)*5),y-10+abs(i-(shoot_bullet-1)/2)*8,global.bullet_depth,objPlayerBullet);
 			_i.sprite_index = sprBBagpipe;
 			_i.vspeed = -7;
 			_i.dmg = atk*2*skill_dmgscale;
@@ -53,7 +53,7 @@ switch(skill){
 	break;
 	//剑雨
 	case 8:
-		var _i = instance_create_depth(x,y,10,objBTexas1);
+		var _i = instance_create_depth(x,y,global.bullet_depth,objBTexas1);
 		_i.dmg = atk*1.7*skill_dmgscale;
 		_i.dmgtype = damage_type.Art;
 		_i.daze_addon = 3*room_speed/2;
@@ -61,7 +61,7 @@ switch(skill){
 	//怒目
 	case 9:
 		for(var i = 0;i < shoot_bullet;i++){
-			var _i = instance_create_depth(x,y-10,10,objPlayerBulletP);
+			var _i = instance_create_depth(x,y-10,global.bullet_depth,objPlayerBulletP);
 			_i.sprite_index = sprBSaga;
 			_i.speed = 7.5;
 			_i.direction = 90-45+i/(shoot_bullet-1)*90
@@ -75,7 +75,7 @@ switch(skill){
 	//红移
 	case 11:
 		for(var i = 0;i < shoot_bullet;i++){
-			var _i = instance_create_depth(x+(-0.5+i/(shoot_bullet-1))*6,y-10,10,objPlayerBullet);
+			var _i = instance_create_depth(x+(-0.5+i/(shoot_bullet-1))*6,y-10,global.bullet_depth,objPlayerBullet);
 			_i.sprite_index = sprBCutter;
 			_i.speed = 6;
 			_i.direction = 90;
@@ -95,7 +95,7 @@ switch(skill){
 		var enemy_list = ds_list_create();
 		instance_find_list(x,y,parEnemy,enemy_list);
 		for(var i = 0;i < shoot_bullet;i++){
-			var _i = instance_create_depth(x,y-10,10,objPlayerMissle);
+			var _i = instance_create_depth(x,y-10,global.bullet_depth,objPlayerMissle);
 			_i.sprite_index = sprBLappland;
 			_i.direction = 90-(shoot_bullet-1)*5+i*10;
 			_i.speed = 4;
@@ -106,7 +106,7 @@ switch(skill){
 			if i < ds_list_size(enemy_list)-1{
 				_i.auto_target = ds_list_find_value(enemy_list,i);
 			}else{
-				_i.auto_target = -1
+				_i.auto_target = -1;
 			}
 			_i.auto_angle = true;
 			_i.shadow = objEShadowScale;
@@ -118,7 +118,7 @@ switch(skill){
 	break;
 	//真银斩
 	case 15:
-		var _i = instance_create_depth(x,y-10,10,objBPlayerRangeSkill);
+		var _i = instance_create_depth(x,y-10,global.bullet_depth,objBPlayerRangeSkill);
 		_i.sprite_index = sprBSliverash;
 		_i.dmg = atk*skill_dmgscale;
 		_i.dmgtype = damage_type.Physic;
@@ -132,9 +132,22 @@ switch(skill){
 		_i.scale2_to = 1.1;
 		audio_play_sound(p_atk_silver_n,1,false);
 	break;
+	//火山
+	case 33:
+		for(var i = 0;i < shoot_bullet*6;i++){
+			var _i = instance_create_depth(x,y,global.bullet_depth,objPlayerBullet);
+			_i.sprite_index = sprBEyja;
+			_i.speed = 3;
+			_i.direction = 90+(skill_duration[skillselect] - skill_time)/shoot_cd*5+i/(shoot_bullet-1)*60;
+			_i.image_angle = _i.direction;
+			_i.dspd = (keyboard_check(vk_right)+keyboard_check(vk_left))*0.25;
+			_i.dmg = atk*skill_dmgscale;
+			_i.dmgtype = damage_type.Art;
+		}
+	break;
 	//反制电磁脉冲
 	case 37:
-		var _i = instance_create_depth(x,y,-10,objBPlayerRangeSkill);
+		var _i = instance_create_depth(x,y,global.bullet_depth,objBPlayerRangeSkill);
 		_i.sprite_index = sprBGlaucas;
 		_i.dmg = atk*8*skill_dmgscale;
 		_i.dmgtype = damage_type.Art;

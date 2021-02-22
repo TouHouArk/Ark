@@ -171,8 +171,11 @@ switch(skill){
 		shootbuff += skill_tag[0];
 	break;
 	case 33:
-		skill_tag[0] = shootbuff*-0.7;
-		shootbuff += skill_tag[0];
+		skill_tag[0] = atkbuff*1.3;
+		atkbuff += skill_tag[0];
+		skill_tag[1] = shootbuff*-0.7;
+		shootbuff += skill_tag[1];
+		autoattack = true;
 	break;
 	case 34:
 		skill_tag[0] = orbit_atkbuff*1;

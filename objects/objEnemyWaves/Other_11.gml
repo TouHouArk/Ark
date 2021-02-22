@@ -1,7 +1,5 @@
+///@desc S1 W2
 if _a >= 0 && _a <= 1200{
-	if _a = 0{
-		audio_play_sound(amiya_start,2,false)
-	}
 	if _a mod 10 = 0 && _a mod 300 <= 50{
 		var _i = instance_create_depth(30,100,0,objEnemyD1);
 		_i.dir = 270;

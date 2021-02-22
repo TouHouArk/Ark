@@ -20,14 +20,14 @@ global.bgm = -1;
 fade = 60;
 textfade = 60;
 st = false;
-stateid[0] = "TH-1"
-statename[0] = "东方军械库"//军械库东
-stateid[1] = "TH-2"
-statename[1] = "1442"//1942
-stateid[2] = "TH-3"
-statename[2] = "雷电"//雷电
-stateid[3] = "TH-4"
-statename[3] = "沙罗曼斐迪亚"//沙罗曼蛇
+stageid[0] = "TH-1"
+stagename[0] = "东方军械库"//军械库东
+stageid[1] = "TH-2"
+stagename[1] = "1442"//1942
+stageid[2] = "TH-3"
+stagename[2] = "雷电"//雷电
+stageid[3] = "TH-4"
+stagename[3] = "沙罗曼斐迪亚"//沙罗曼蛇
 
 ts_init()
 global.sep = -8;
@@ -47,11 +47,15 @@ ts_add_keyword("<rare2>", ts_outline(true,make_color_rgb(220,10,30)));
 ts_add_keyword("<shadow>", ts_shadow(true,0,2,c_black,0.2));
 
 global.showgui = true;
+global.bullet_depth = -30;
 global.froze = true;
 global.fun = false;
 //event_user(0);
 bgcolor = make_color_rgb(54,54,54);
 hpcolor = make_color_rgb(0,156,237);
+
+global.stage = 0;
+global.wave = 0;
 
 global.drone_hpbuff = 1;
 global.drone_atkbuff = 1;

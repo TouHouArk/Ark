@@ -13,8 +13,8 @@
   "soundFile": "e_imp_uav_nlaser.wav",
   "duration": 0.202891,
   "parent": {
-    "name": "snd",
-    "path": "folders/Sounds/snd.yy",
+    "name": "e_imp",
+    "path": "folders/Sounds/snd/e_imp.yy",
   },
   "resourceVersion": "1.0",
   "name": "e_imp_uav_nlaser",

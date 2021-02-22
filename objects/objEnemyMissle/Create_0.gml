@@ -10,6 +10,7 @@ ed = false;
 inv = false;
 bounce = false;
 _b = 10;
+_bs = sprBD2;
 _bang = irandom(359);
 
 aspd = 0;

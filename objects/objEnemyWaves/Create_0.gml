@@ -1,3 +1,5 @@
 _a = -240;
-wave = 0;
+global.stage = 1;
+global.wave = 0;
 //_a = 2500;
+ed = false;

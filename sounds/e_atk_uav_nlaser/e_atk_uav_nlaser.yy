@@ -13,8 +13,8 @@
   "soundFile": "e_atk_uav_nlaser.wav",
   "duration": 1.260215,
   "parent": {
-    "name": "snd",
-    "path": "folders/Sounds/snd.yy",
+    "name": "e_atk",
+    "path": "folders/Sounds/snd/e_atk.yy",
   },
   "resourceVersion": "1.0",
   "name": "e_atk_uav_nlaser",

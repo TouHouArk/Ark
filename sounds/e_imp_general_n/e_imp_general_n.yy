@@ -13,8 +13,8 @@
   "soundFile": "e_imp_general_n.wav",
   "duration": 0.693231,
   "parent": {
-    "name": "snd",
-    "path": "folders/Sounds/snd.yy",
+    "name": "e_imp",
+    "path": "folders/Sounds/snd/e_imp.yy",
   },
   "resourceVersion": "1.0",
   "name": "e_imp_general_n",

@@ -9,6 +9,8 @@ resist = 65;
 depth = -10;
 lifetime = 800;
 _t = 30;
+_t2 = 60;
+flip = false;
 
 _dr = -1;
 xp = 15;

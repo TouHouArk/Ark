@@ -13,8 +13,8 @@
   "soundFile": "p_atk_silver_n.wav",
   "duration": 1.725045,
   "parent": {
-    "name": "snd",
-    "path": "folders/Sounds/snd.yy",
+    "name": "p_atk",
+    "path": "folders/Sounds/snd/p_atk.yy",
   },
   "resourceVersion": "1.0",
   "name": "p_atk_silver_n",

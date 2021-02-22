@@ -1,6 +1,4 @@
-if aspd != 0{
-	image_angle += aspd;
-}
+image_angle += aspd;
 if auto_found{
 	if auto_target != -1 && instance_exists(auto_target){
 		var tdr = point_direction(x,y,auto_target.x,auto_target.y)
@@ -17,9 +15,7 @@ if auto_found{
 		}
 	}
 }else{
-	if dspd != 0{
-		direction += dspd;
-	}
+	direction += dspd;
 }
 if auto_angle{
 	image_angle = direction + auto_angle_d;

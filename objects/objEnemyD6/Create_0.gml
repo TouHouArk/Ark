@@ -6,6 +6,8 @@ defence = 220+global.drone_level*200;
 resist = 30+min(30,global.drone_level*10);
 lifetime = 800;
 
+elite = 1;
+
 _t = 240;
 missle = sprBD6;
 _b = 30;

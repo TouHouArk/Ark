@@ -13,8 +13,8 @@
   "soundFile": "p_imp_amiyamag_n.wav",
   "duration": 0.90466,
   "parent": {
-    "name": "snd",
-    "path": "folders/Sounds/snd.yy",
+    "name": "p_imp",
+    "path": "folders/Sounds/snd/p_imp.yy",
   },
   "resourceVersion": "1.0",
   "name": "p_imp_amiyamag_n",

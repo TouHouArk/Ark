@@ -9,7 +9,6 @@ switch(type){
 					_i.vspeed = -12;
 					_i.alarm[0] = 60;
 					_i.image_angle = 180;
-					_i.sound = e_imp_general_n;
 				}
 				if y <= 100{
 					vspeed = spd;
@@ -31,7 +30,7 @@ switch(type){
 						var _aa = floor(_a/15-2)
 						var _i = instance_create_depth(30-i*50,80-i*20+_aa*80,depth-10,objEnemyD1);
 						_i.type = 10;
-						_i._t = 200-i*45-_aa*30;
+						_i._t = 200-i*45-_aa*40;
 						_i.hspeed = 2;
 						_i._a = -30-i*45+20;
 						_i.spd = 2;
@@ -40,7 +39,7 @@ switch(type){
 						
 						_i = instance_create_depth(270+i*50,80-i*20+_aa*80,depth-10,objEnemyD1);
 						_i.type = 10;
-						_i._t = 200-i*45-_aa*30;
+						_i._t = 200-i*45-_aa*40;
 						_i.hspeed = -2;
 						_i._a = -30-i*45+20;
 						_i.spd = 2;
@@ -77,11 +76,12 @@ switch(type){
 					}
 					if _a mod 6 = 0{
 						for(var i = 0;i < 3;i++){
-							var _i = instance_create_depth(x,y+30-i*5,depth+10,objEnemyBullet);
-							_i.sprite_index = sprBD2;
+							var _i = instance_create_depth(x,y+30-i*5,global.bullet_depth,objEnemyBullet);
+							_i.sprite_index = sprBD4;
 							_i.speed = 4;
 							_i.direction = 270;
 							_i.dmg = round(atk/3);
+							_i.image_angle = 180;
 						}
 					}
 				}

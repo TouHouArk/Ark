@@ -1,6 +1,6 @@
 if keyboard_check(vk_space) && _s <= 0 && !global.froze{
 	for(var i = 0;i < shoot_bullet;i++){
-		var _i = instance_create_depth(x+0.5,y,10,objPlayerMissle);
+		var _i = instance_create_depth(x+0.5,y,global.bullet_depth,objPlayerMissle);
 		_i.sprite_index = sprBDrone1;
 		_i.gravity = 0.1;
 		_i.gravity_direction = 90;

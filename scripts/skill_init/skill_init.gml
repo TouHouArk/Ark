@@ -7,6 +7,7 @@ function skill_init(){
 	global.skill_sptype[0] = sp_type.None;
 	global.skill_casttype[0] = cast_type.None;
 	global.skill_charge[0] = 1;
+	global.skill_sound[0] = -1;
 	global.skill_name[1] = "战术咏唱·γ型";
 	global.skill_desc[1] = "攻击速度<skill>+90</><br><ps>携带此技能造成伤害时,额外回复初始技能1x1点技力，消灭敌人后额外获得10点技力</>";
 	global.skill_spstart[1] = 15;
@@ -15,6 +16,7 @@ function skill_init(){
 	global.skill_sptype[1] = sp_type.Auto;
 	global.skill_casttype[1] = cast_type.Cast;
 	global.skill_charge[1] = 1;
+	global.skill_sound[1] = b_char_atkboost;
 	global.skill_name[2] = "精神爆发";
 	global.skill_desc[2] = "攻击变为<skill>3x</>攻击力<skill>160%</>的广域散射弹<br><ps>技能自动开启,持续时间结束后<br>阿米娅停止攻击10秒</>"
 	global.skill_spstart[2] = 0;
@@ -23,6 +25,7 @@ function skill_init(){
 	global.skill_sptype[2] = sp_type.Auto;
 	global.skill_casttype[2] = cast_type.Auto;
 	global.skill_charge[2] = 1;
+	global.skill_sound[2] = b_char_atkboost;
 	global.skill_name[3] = "奇美拉";
 	global.skill_desc[3] = "攻击力<skill>+230%</>,生命上限<skill>+100%</>,攻击变为<skill>真实伤害</>的单发聚合弹<br><ps>技能结束后阿米娅生命值强制归零</>"
 	global.skill_spstart[3] = 0;
@@ -31,6 +34,7 @@ function skill_init(){
 	global.skill_sptype[3] = sp_type.Auto;
 	global.skill_casttype[3] = cast_type.Cast;
 	global.skill_charge[3] = 1;
+	global.skill_sound[3] = p_skill_chimera;
 
 	global.skill_name[4] = "治愈之翼";
 	global.skill_desc[4] = "<debuff>停止攻击</>,技能结束时获得<skill>4个</>源石锭,并每秒治疗相当于<skill>攻击力150%</>的生命";
@@ -40,6 +44,7 @@ function skill_init(){
 	global.skill_sptype[4] = sp_type.Auto;
 	global.skill_casttype[4] = cast_type.Cast;
 	global.skill_charge[4] = 1;
+	global.skill_sound[0] = b_char_tactboost;
 	global.skill_name[5] = "冲锋号令·防御";
 	global.skill_desc[5] = "技能结束时获得<skill>2个</>源石锭,技能期间防御力<skill>+80%</>";
 	global.skill_spstart[5] = 17;
@@ -48,6 +53,7 @@ function skill_init(){
 	global.skill_sptype[5] = sp_type.Auto;
 	global.skill_casttype[5] = cast_type.Cast;
 	global.skill_charge[5] = 1;
+	global.skill_sound[0] = b_char_defboost;
 	global.skill_name[6] = "冲锋号令·攻击";
 	global.skill_desc[6] = "立刻获得<skill>2个</>源石锭,技能期间攻击力<skill>+70%</>";
 	global.skill_spstart[6] = 18;
@@ -56,6 +62,7 @@ function skill_init(){
 	global.skill_sptype[6] = sp_type.Auto;
 	global.skill_casttype[6] = cast_type.Cast;
 	global.skill_charge[6] = 1;
+	global.skill_sound[6] = b_char_atkboost;
 	global.skill_name[7] = "高效冲击";
 	global.skill_desc[7] = "下一次的攻击力<skill>提升至200%</>,且额外攻击<skill>一次</>,伤害类型变为<skill>物理</><br><ps>可充能3次</>";
 	global.skill_spstart[7] = 0;
@@ -64,14 +71,16 @@ function skill_init(){
 	global.skill_sptype[7] = sp_type.Auto;
 	global.skill_casttype[7] = cast_type.AutoWhenAttack;
 	global.skill_charge[7] = 3;
+	global.skill_sound[7] = -1;/*WIP*/
 	global.skill_name[8] = "剑雨";
 	global.skill_desc[8] = "立刻获得<skill>2个</>源石锭;创造一片剑雨对周围所有敌人造成两次<skill>攻击力170%</>的法术伤害并眩晕<skill>3秒</><br><ps>子弹数量仅影响其范围</>";
 	global.skill_spstart[8] = 30;
 	global.skill_spneed[8] = 40;
-	global.skill_duration[8] = 0;
+	global.skill_duration[8] = 1;
 	global.skill_sptype[8] = sp_type.Auto;
 	global.skill_casttype[8] = cast_type.Cast;
 	global.skill_charge[8] = 1;
+	global.skill_sound[8] = p_skill_swordrain
 	global.skill_name[9] = "怒目";
 	global.skill_desc[9] = "技能结束时获得<skill>2个</>源石锭,技能期间攻击间隔<debuff>稍微增大</>,攻击力<skill>+120%</>,攻击变为穿透的风墙";
 	global.skill_spstart[9] = 28;
@@ -80,6 +89,7 @@ function skill_init(){
 	global.skill_sptype[9] = sp_type.Auto;
 	global.skill_casttype[9] = cast_type.Cast;
 	global.skill_charge[9] = 1;
+	global.skill_sound[9] = b_char_atkboost;
 	global.skill_name[10] = "跃浪击";
 	global.skill_desc[10] = "复活后<skill>30秒</>内攻击力<skill>+170%</>";
 	global.skill_spstart[10] = 0;
@@ -88,6 +98,7 @@ function skill_init(){
 	global.skill_sptype[10] = sp_type.Auto;
 	global.skill_casttype[10] = cast_type.AutoWhenRespawn;
 	global.skill_charge[10] = 1;
+	global.skill_sound[10] = b_char_atkboost;
 	global.skill_name[11] = "红移";
 	global.skill_desc[11] = "投掷4次<skill>1x飞刀</>,每把造成相当于<skill>攻击力340%</>的物理伤害<br><ps>技能攻击回复</>";
 	global.skill_spstart[11] = 5;
@@ -96,6 +107,7 @@ function skill_init(){
 	global.skill_sptype[11] = sp_type.Attacked;
 	global.skill_casttype[11] = cast_type.Cast;
 	global.skill_charge[11] = 1;
+	global.skill_sound[11] = b_char_atkboost;
 	global.skill_name[12] = "狼魂";
 	global.skill_desc[12] = "攻击力<skill>+210%</>,子弹数<debuff>-1</>,攻击变为发射<skill>1x</>法术伤害追踪导弹<br><ps>技能自动开启</>";
 	global.skill_spstart[12] = 0;
@@ -104,6 +116,7 @@ function skill_init(){
 	global.skill_sptype[12] = sp_type.Attacked;
 	global.skill_casttype[12] = cast_type.Auto;
 	global.skill_charge[12] = 1;
+	global.skill_sound[12] = p_skill_soulwolf;
 	global.skill_name[13] = "至高之术";
 	global.skill_desc[13] = "攻击力<skill>+80%</>,攻击速度<skill>+25</><br><ps>技能攻击回复,第二次及以后使用时效果翻倍,持续时间无限</>";
 	global.skill_spstart[13] = 0;
@@ -112,6 +125,7 @@ function skill_init(){
 	global.skill_sptype[13] = sp_type.Attacked;
 	global.skill_casttype[13] = cast_type.Cast;
 	global.skill_charge[13] = 1;
+	global.skill_sound[13] = b_char_atkboost;
 	global.skill_name[14] = "肉斩骨断";
 	global.skill_desc[14] = "技能持续期间内生命值始终<skill>不会归零</>,攻击力<skill>+40%</><br><ps>技能结束后阿米娅停止攻击10秒</>";
 	global.skill_spstart[14] = 35;
@@ -120,6 +134,7 @@ function skill_init(){
 	global.skill_sptype[14] = sp_type.Auto;
 	global.skill_casttype[14] = cast_type.Cast;
 	global.skill_charge[14] = 1;
+	global.skill_sound[14] = b_char_atkboost;
 	global.skill_name[15] = "真银斩";
 	global.skill_desc[15] = "防御力<debuff>-70%</>,攻击力<skill>+200%</>,攻击变为范围斩击<br><ps>子弹数量仅影响其范围</>";
 	global.skill_spstart[15] = 75;
@@ -128,6 +143,7 @@ function skill_init(){
 	global.skill_sptype[15] = sp_type.Auto;
 	global.skill_casttype[15] = cast_type.Cast;
 	global.skill_charge[15] = 1;
+	global.skill_sound[15] = b_char_tactboost;
 	global.skill_name[16] = "生命回复·α型";
 	global.skill_desc[16] = "立刻恢复<skill>全部生命</>";
 	global.skill_spstart[16] = 12;
@@ -136,6 +152,7 @@ function skill_init(){
 	global.skill_sptype[16] = sp_type.Auto;
 	global.skill_casttype[16] = cast_type.Cast;
 	global.skill_charge[16] = 1;
+	global.skill_sound[16] = -1;/*WIP*/
 	global.skill_name[17] = "壳状防御";
 	global.skill_desc[17] = "停止攻击;防御力<skill>+230%</>,每秒恢复最大生命的<skill>5%</>";
 	global.skill_spstart[17] = 0;
@@ -144,14 +161,16 @@ function skill_init(){
 	global.skill_sptype[17] = sp_type.Auto;
 	global.skill_casttype[17] = cast_type.Cast;
 	global.skill_charge[17] = 1;
+	global.skill_sound[17] = b_char_defboost;
 	global.skill_name[18] = "磁爆锤";
 	global.skill_desc[18] = "立刻对周围小范围敌人造成相当于<skill>攻击力2000%</>的物理伤害<br><ps>技能受击回复</>";
 	global.skill_spstart[18] = 0;
 	global.skill_spneed[18] = 17;
-	global.skill_duration[18] = 0;
+	global.skill_duration[18] = 1;
 	global.skill_sptype[18] = sp_type.GetAttacked;
 	global.skill_casttype[18] = cast_type.Cast;
 	global.skill_charge[18] = 1;
+	global.skill_sound[18] = b_char_defboost;
 	global.skill_name[19] = "反击电弧";
 	global.skill_desc[19] = "攻击间隔<debuff>增大</>,攻击力<skill>+200%</>,攻击变为穿透性射线";
 	global.skill_spstart[19] = 0;
@@ -160,6 +179,7 @@ function skill_init(){
 	global.skill_sptype[19] = sp_type.Auto;
 	global.skill_casttype[19] = cast_type.Cast;
 	global.skill_charge[19] = 1;
+	global.skill_sound[19] = b_char_atkboost;
 	global.skill_name[20] = "急救";
 	global.skill_desc[20] = "血量不足一半时,下次攻击立刻恢复相当于<skill>攻击力180%</>的生命<br><ps>可充能3次</>";
 	global.skill_spstart[20] = 0;
@@ -168,6 +188,7 @@ function skill_init(){
 	global.skill_sptype[20] = sp_type.Auto;
 	global.skill_casttype[20] = cast_type.Cast;
 	global.skill_charge[20] = 3;
+	global.skill_sound[20] = -1;/*WIP*/
 	global.skill_name[21] = "秽壤的血脉";
 	global.skill_desc[21] = "技能开启后<skill>无敌</>+<debuff>无法攻击</>10秒;那之后攻击间隔<skill>缩短</>,攻击力<skill>+240%</>,防御力<skill>+150%</>";
 	global.skill_spstart[21] = 15;
@@ -176,6 +197,7 @@ function skill_init(){
 	global.skill_sptype[21] = sp_type.Auto;
 	global.skill_casttype[21] = cast_type.Cast;
 	global.skill_charge[21] = 1;
+	global.skill_sound[21] = b_char_defboost;
 	global.skill_name[22] = "天马视域";
 	global.skill_desc[22] = "攻击力<skill>+80%</><br><ps>技能自动开启,持续时间无限</>";
 	global.skill_spstart[22] = 0;
@@ -184,6 +206,7 @@ function skill_init(){
 	global.skill_sptype[22] = sp_type.Auto;
 	global.skill_casttype[22] = cast_type.Auto;
 	global.skill_charge[22] = 1;
+	global.skill_sound[22] = p_skill_skyeyeopen;
 	global.skill_name[23] = "凝武";
 	global.skill_desc[23] = "攻击变为投掷回旋的大飞镖,短时间内使命中目标每秒受到相当于<skill>攻击力150%</>的法术伤害";
 	global.skill_spstart[23] = 0;
@@ -192,6 +215,7 @@ function skill_init(){
 	global.skill_sptype[23] = sp_type.Auto;
 	global.skill_casttype[23] = cast_type.Cast;
 	global.skill_charge[23] = 1;
+	global.skill_sound[23] = b_char_atkboost;
 	global.skill_name[24] = "雷达定位";
 	global.skill_desc[24] = "攻击力<skill>+200%</>,攻击间隔<debuff>略微增大</>,攻击变为自动瞄准的狙击";
 	global.skill_spstart[24] = 10;
@@ -200,6 +224,7 @@ function skill_init(){
 	global.skill_sptype[24] = sp_type.Auto;
 	global.skill_casttype[24] = cast_type.Cast;
 	global.skill_charge[24] = 1;
+	global.skill_sound[24] = b_char_tactboost;
 	global.skill_name[25] = "过载模式";
 	global.skill_desc[25] = "伤害变为<skill>物理伤害</>,攻击速度变为<skill>5倍</>,攻击力<skill>+50%</><br><ps>技能会自动开启</>";
 	global.skill_spstart[25] = 20;
@@ -208,6 +233,7 @@ function skill_init(){
 	global.skill_sptype[25] = sp_type.Auto;
 	global.skill_casttype[25] = cast_type.Auto;
 	global.skill_charge[25] = 1;
+	global.skill_sound[25] = b_char_atkboost;
 	global.skill_name[26] = "D12";
 	global.skill_desc[26] = "立刻投掷3枚炸弹,炸弹会在一定延迟后引爆,每个对其周围的所有敌人造成相当于<skill>攻击力310%</>的物理伤害";
 	global.skill_spstart[26] = 20;
@@ -216,6 +242,7 @@ function skill_init(){
 	global.skill_sptype[26] = sp_type.Auto;
 	global.skill_casttype[26] = cast_type.Cast;
 	global.skill_charge[26] = 1;
+	global.skill_sound[26] = b_char_atkboost;
 	global.skill_name[27] = "战术的终结";
 	global.skill_desc[27] = "攻击变为<skill>物理伤害</>的单发聚合弹,攻击间隔<debuff>略微增大</>,攻击力<skill>+350%</>,被命中目标的防御力<skill>减少50%</>";
 	global.skill_spstart[27] = 12;
@@ -224,6 +251,7 @@ function skill_init(){
 	global.skill_sptype[27] = sp_type.Auto;
 	global.skill_casttype[27] = cast_type.Cast;
 	global.skill_charge[27] = 1;
+	global.skill_sound[27] = p_skill_militaryxbowchange;
 	global.skill_name[28] = "狂热";
 	global.skill_desc[28] = "攻击力<skill>+20%</>,攻击速度<skill>+80</>";
 	global.skill_spstart[28] = 20;
@@ -232,6 +260,7 @@ function skill_init(){
 	global.skill_sptype[28] = sp_type.Auto;
 	global.skill_casttype[28] = cast_type.Cast;
 	global.skill_charge[28] = 1;
+	global.skill_sound[28] = b_char_atkboost;
 	global.skill_name[29] = "赤色之瞳";
 	global.skill_desc[29] = "最大生命值<debuff>-75%</>；攻击力<skill>+80%</>,攻击速度<skill>+100</>";
 	global.skill_spstart[29] = 0;
@@ -240,6 +269,7 @@ function skill_init(){
 	global.skill_sptype[29] = sp_type.Auto;
 	global.skill_casttype[29] = cast_type.Cast;
 	global.skill_charge[29] = 1;
+	global.skill_sound[29] = b_char_atkboost;
 	global.skill_name[30] = "荒时之锁";
 	global.skill_desc[30] = "<debuff>停止攻击,无法移动</>,前方范围内所有敌人每秒受到<skill>攻击力200%</>的法术伤害";
 	global.skill_spstart[30] = 20;
@@ -248,6 +278,7 @@ function skill_init(){
 	global.skill_sptype[30] = sp_type.Auto;
 	global.skill_casttype[30] = cast_type.Cast;
 	global.skill_charge[30] = 1;
+	global.skill_sound[30] = b_char_atkboost;
 	global.skill_name[31] = "童话守卫者";
 	global.skill_desc[31] = "攻击间隔<skill>超大幅度缩短</>,每次攻击造成相当于<debuff>攻击力80%</>的法术伤害";
 	global.skill_spstart[31] = 5;
@@ -256,6 +287,7 @@ function skill_init(){
 	global.skill_sptype[31] = sp_type.Auto;
 	global.skill_casttype[31] = cast_type.Cast;
 	global.skill_charge[31] = 1;
+	global.skill_sound[31] = b_char_atkboost;
 	global.skill_name[32] = "“很热的刀”";
 	global.skill_desc[32] = "攻击间隔<skill>极大幅度缩短</>,每次攻击额外造成<skill>对方防御力44%</>的法术伤害";
 	global.skill_spstart[32] = 25;
@@ -264,14 +296,16 @@ function skill_init(){
 	global.skill_sptype[32] = sp_type.Auto;
 	global.skill_casttype[32] = cast_type.Cast;
 	global.skill_charge[32] = 1;
+	global.skill_sound[32] = b_char_atkboost;
 	global.skill_name[33] = "火山";
-	global.skill_desc[33] = "攻击间隔<skill>极大幅度缩短</>,攻击变为<skill>6x</>攻击力<skill>200%</>的弹幕";
-	global.skill_spstart[33] = 55;
+	global.skill_desc[33] = "攻击力<skill>+130%</>，攻击间隔<skill>极大幅度缩短</>,攻击变为<skill>6x</>熔岩弹幕";
+	global.skill_spstart[33] = 65;
 	global.skill_spneed[33] = 80;
 	global.skill_duration[33] = 15;
 	global.skill_sptype[33] = sp_type.Auto;
 	global.skill_casttype[33] = cast_type.Cast;
 	global.skill_charge[33] = 1;
+	global.skill_sound[33] = b_char_atkboost;
 	global.skill_name[34] = "全景过载摄像";
 	global.skill_desc[34] = "无人机攻击力<skill>+100%</>";
 	global.skill_spstart[34] = 15;
@@ -280,6 +314,7 @@ function skill_init(){
 	global.skill_sptype[34] = sp_type.Auto;
 	global.skill_casttype[34] = cast_type.Cast;
 	global.skill_charge[34] = 1;
+	global.skill_charge[34] = b_char_atkboost;
 	global.skill_name[35] = "爆破回收";
 	global.skill_desc[35] = "立刻引爆身边的数个无人机(不会全部引爆),爆炸时对周围敌人造成相当于无人机<skill>攻击3000%</>的法术伤害";
 	global.skill_spstart[35] = 0;
@@ -288,6 +323,7 @@ function skill_init(){
 	global.skill_sptype[35] = sp_type.Auto;
 	global.skill_casttype[35] = cast_type.Cast;
 	global.skill_charge[35] = 1;
+	global.skill_sound[35] = b_char_atkboost;
 	global.skill_name[36] = "光影之触";
 	global.skill_desc[36] = "无人机攻击力<skill>+60%</>,自身每秒恢复<skill>50</>点生命";
 	global.skill_spstart[36] = 0;
@@ -296,6 +332,7 @@ function skill_init(){
 	global.skill_sptype[36] = sp_type.Auto;
 	global.skill_casttype[36] = cast_type.Cast;
 	global.skill_charge[36] = 1;
+	global.skill_sound[36] = b_char_atkboost;
 	global.skill_name[37] = "反制电磁脉冲";
 	global.skill_desc[37] = "立刻发射一道大范围冲击波,击中的所有敌人受到<skill>攻击力800%</>的法术伤害并束缚（无法移动）6秒</><br><ps>子弹数量仅影响其范围</>";
 	global.skill_spstart[37] = 20;
@@ -304,6 +341,7 @@ function skill_init(){
 	global.skill_sptype[37] = sp_type.Auto;
 	global.skill_casttype[37] = cast_type.Cast;
 	global.skill_charge[37] = 1;
+	global.skill_sound[37] = b_char_tactboost;
 	global.skill_name[38] = "秘杖·反重力模式";
 	global.skill_desc[38] = "攻击力<skill>+200%</>,攻击变为<skill>5x</>自狙击子弹<br><ps>技能未开启时无法普通攻击</>";
 	global.skill_spstart[38] = 10;
@@ -312,6 +350,7 @@ function skill_init(){
 	global.skill_sptype[38] = sp_type.Auto;
 	global.skill_casttype[38] = cast_type.Cast;
 	global.skill_charge[38] = 1;
+	global.skill_sound[38] = p_skill_particulateboost;
 	global.skill_name[39] = "武装打击模块";
 	global.skill_desc[39] = "自身与无人机攻击力<skill>+80%</>,无人机攻击的爆炸范围<skill>扩大</>";
 	global.skill_spstart[39] = 25;
@@ -320,6 +359,7 @@ function skill_init(){
 	global.skill_sptype[39] = sp_type.Auto;
 	global.skill_casttype[39] = cast_type.Cast;
 	global.skill_charge[39] = 1;
+	global.skill_sound[39] = b_char_tactboost;
 	global.skill_name[40] = "脑啡肽";
 	global.skill_desc[40] = "攻击间隔<skill>超大幅度缩短</><br><ps>携带这个技能时,SP恢复速度+0.3/s</>";
 	global.skill_spstart[40] = 85;
@@ -328,6 +368,7 @@ function skill_init(){
 	global.skill_sptype[40] = sp_type.Auto;
 	global.skill_casttype[40] = cast_type.Cast;
 	global.skill_charge[40] = 1;
+	global.skill_sound[40] = b_char_healboost;
 	global.skill_name[41] = "医疗无人机";
 	global.skill_desc[41] = "生成一个<skill>10秒</>医疗无人机,再其周围时每秒<skill>恢复400生命值</>";
 	global.skill_spstart[41] = 0;
@@ -336,6 +377,7 @@ function skill_init(){
 	global.skill_sptype[41] = sp_type.Auto;
 	global.skill_casttype[41] = cast_type.Auto;
 	global.skill_charge[41] = 1;
+	global.skill_sound[41] = b_char_tokenset;
 	global.skill_name[42] = "活力再生";
 	global.skill_desc[42] = "下次攻击时,立刻增加5秒增益,每秒持续恢复相当于<skill>攻击力35%</>（血量低于一半时为70%）的生命<br><ps>可充能3次</>";
 	global.skill_spstart[42] = 0;
@@ -344,6 +386,7 @@ function skill_init(){
 	global.skill_sptype[42] = sp_type.Auto;
 	global.skill_casttype[42] = cast_type.AutoWhenAttack;
 	global.skill_charge[42] = 3;
+	global.skill_sound[42] = b_char_healboost;
 	global.skill_name[43] = "深度治疗";
 	global.skill_desc[43] = "攻击力<skill>+100%</>,攻击速度<skill>+100</><br><ps>使用2次后技能删除</>";
 	global.skill_spstart[43] = 0;
@@ -352,6 +395,7 @@ function skill_init(){
 	global.skill_sptype[43] = sp_type.Auto;
 	global.skill_casttype[43] = cast_type.Cast;
 	global.skill_charge[43] = 1;
+	global.skill_sound[43] = b_char_healboost;
 	global.skill_name[44] = "教条力场";
 	global.skill_desc[44] = "攻击力<skill>+100%</>,防御力<skill>+300%</>";
 	global.skill_spstart[44] = 85;
@@ -360,6 +404,7 @@ function skill_init(){
 	global.skill_sptype[44] = sp_type.Auto;
 	global.skill_casttype[44] = cast_type.Cast;
 	global.skill_charge[44] = 1;
+	global.skill_sound[44] = b_char_tactboost;
 	global.skill_name[45] = "圣域";
 	global.skill_desc[45] = "攻击力<skill>+100%</>,法术抗性<skill>+150%</>";
 	global.skill_spstart[45] = 85;
@@ -368,6 +413,7 @@ function skill_init(){
 	global.skill_sptype[45] = sp_type.Auto;
 	global.skill_casttype[45] = cast_type.Cast;
 	global.skill_charge[45] = 1;
+	global.skill_sound[45] = b_char_tactboost;
 	global.skill_name[46] = "刺身拼盘";
 	global.skill_desc[46] = "攻击力<skill>+30%</>,每次攻击治疗<skill>造成伤害10%</>的生命值<br><ps>技能自动开启,持续时间无限</>";
 	global.skill_spstart[46] = 0;
@@ -376,6 +422,7 @@ function skill_init(){
 	global.skill_sptype[46] = sp_type.Auto;
 	global.skill_casttype[46] = cast_type.Auto;
 	global.skill_charge[46] = 1;
+	global.skill_sound[46] = b_char_atkboost;
 	global.skill_name[47] = "爆发剂·榴莲味";
 	global.skill_desc[47] = "无人机数量<debuff>-1</>,自身和其他无人机攻击力<skill>+100%</>,攻击速度<skill>+200</>";
 	global.skill_spstart[47] = 30;
@@ -384,6 +431,7 @@ function skill_init(){
 	global.skill_sptype[47] = sp_type.Auto;
 	global.skill_casttype[47] = cast_type.Cast;
 	global.skill_charge[47] = 1;
+	global.skill_sound[47] = p_skill_fulminatingpotionY;
 	global.skill_name[48] = "水蒸气泵";
 	global.skill_desc[48] = "向前短距离位移,对碰到的敌人造成<skill>攻击力150%</>的物理伤害";
 	global.skill_spstart[48] = 0;
@@ -392,6 +440,7 @@ function skill_init(){
 	global.skill_sptype[48] = sp_type.Auto;
 	global.skill_casttype[48] = cast_type.Cast;
 	global.skill_charge[48] = 1;
+	global.skill_sound[48] = -1;/*WIP*/
 	global.skill_name[49] = "崩拳式";
 	global.skill_desc[49] = "向前长距离位移,对碰到的敌人造成<skill>攻击力200%</>的物理伤害";
 	global.skill_spstart[49] = 0;
@@ -400,6 +449,7 @@ function skill_init(){
 	global.skill_sptype[49] = sp_type.Auto;
 	global.skill_casttype[49] = cast_type.Cast;
 	global.skill_charge[49] = 1;
+	global.skill_sound[49] = -1;/*WIP*/
 	global.skill_name[50] = "液氮大炮";
 	global.skill_desc[50] = "向前长距离位移,对碰到的敌人造成<skill>攻击力250%</>的法术伤害<br><ps>可充能2次</>";
 	global.skill_spstart[50] = 0;
@@ -408,6 +458,7 @@ function skill_init(){
 	global.skill_sptype[50] = sp_type.Auto;
 	global.skill_casttype[50] = cast_type.Cast;
 	global.skill_charge[50] = 2;
+	global.skill_sound[50] = -1;/*WIP*/
 	global.skill_name[51] = "蓄力毒尾击";
 	global.skill_desc[51] = "攻击间隔<debuff>增大</>,攻击力<skill>+90%</><br><ps>携带这个技能时,没进行攻击的2秒后进入隐匿,下一次攻击伤害+50%</>";
 	global.skill_spstart[51] = 10;
@@ -416,4 +467,5 @@ function skill_init(){
 	global.skill_sptype[51] = sp_type.Auto;
 	global.skill_casttype[51] = cast_type.Cast;
 	global.skill_charge[51] = 1;
+	global.skill_sound[51] = b_char_atkboost;/*WIP*/
 }

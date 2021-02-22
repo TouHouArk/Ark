@@ -1,7 +1,5 @@
+///@desc S1 W1
 if _a >= 0 && _a <= 1800{
-	if _a = 0{
-		audio_play_sound(amiya_go,2,false)
-	}
 	if _a mod 240 = 60{
 		for(var i = 0;i < 3;i++){
 			instance_create_depth(80+i*70,-20,0,objEnemyD1);
@@ -14,13 +12,13 @@ if _a >= 0 && _a <= 1800{
 	}
 	if _a >= 600 && _a mod 300 <= 80 && _a mod 40 = 0{
 		for(var i = 0;i < 3;i++){
-			var _i = instance_create_depth(40-i*50,50+(_a mod 300)/20*50,0,objEnemyD1);
+			var _i = instance_create_depth(40-i*50,250-(_a mod 300)/20*50,0,objEnemyD2);
 			_i.dir = 0;
 		}
 	}
 	if _a >= 600 && _a mod 300 <= 80 && _a mod 40 = 20{
 		for(var i = 0;i < 3;i++){
-			var _i = instance_create_depth(260+i*50,50+(_a mod 300)/20*50,0,objEnemyD1);
+			var _i = instance_create_depth(260+i*50,250-(_a mod 300)/20*50,0,objEnemyD2);
 			_i.dir = 180;
 		}
 	}
@@ -37,23 +35,23 @@ if _a >= 0 && _a <= 1800{
 		_i.dir = 225;
 		_i.image_angle = 270;
 	}
-	if _a mod 60 = 0{
+	if _a mod 120 = 0{
 		var _i = instance_create_depth(20,0,0,objEnemyD2);
 		_i.dir = -30;
 		
 		_i = instance_create_depth(280,0,0,objEnemyD2);
 		_i.dir = 210;
 	}
-	if _a mod 120 = 0{
+	if _a mod 240 = 0{
 		var _i = instance_create_depth(110,-20,0,objEnemyD2);
-		_i.spd = 2;
+		_i.spd = 1;
 		_i.type = 1;
-		_i._t = 40;
+		_i._t = 10;
 		
 		_i = instance_create_depth(190,-20,0,objEnemyD2);
-		_i.spd = 2;
+		_i.spd = 1;
 		_i.type = 1;
-		_i._t = 40;
+		_i._t = 10;
 	}
 	if _a = 2200{
 		if get_chance() <= 40*global.luck_rate{
@@ -94,7 +92,6 @@ if _a >= 0 && _a <= 1800{
 	}
 	
 	if !instance_exists(objEnemyD3){
-		wave += 1;
-		_a = -120;
+		ed = true;
 	}
 }

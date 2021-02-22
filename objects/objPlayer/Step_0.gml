@@ -12,6 +12,13 @@ if stuck <= 0 && !global.froze{
 		sprite_index = sprPlayerAmiyaStop;
 		image_xscale = 1;
 	}
+	if keyboard_check(vk_shift){
+		point_alpha = min(point_alpha+0.05,1);
+		depth = 80;
+	}else{
+		point_alpha = max(point_alpha-0.05,0);
+		depth = 0;
+	}
 
 	var input_x = keyboard_check(vk_right)-keyboard_check(vk_left);
 	var input_y = keyboard_check(vk_down)-keyboard_check(vk_up);

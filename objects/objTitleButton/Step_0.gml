@@ -2,18 +2,19 @@ var dpx = objTitleSystem.mouse_dpx;
 var dpy = objTitleSystem.mouse_dpy;
 var ox = 0+dx;
 var oy = 50+dy;
+var ax = -dpy*0.05;
 var ay = -0.05+dpx*0.1;
 w = (310+166*(mode = 0 || mode >= 8))*image_xscale;
 h = (132)*image_yscale;
 
-dx1 = ox+20*dpx;
+dx1 = ox+20*dpx+(y+dy)*ax;
 dy1 = oy+(x+dx)*ay+20*dpy;
-dx4 = ox+20*dpx;
+dx4 = ox+20*dpx+(y+dy+h)*ax;
 dy4 = oy+(x+dx)*ay+20*dpy+h;
 
-dx2 = ox+20*dpx+w;
+dx2 = ox+20*dpx+w+(y+dy)*ax;
 dy2 = oy+(x+dx+w)*ay+20*dpy;
-dx3 = ox+20*dpx+w;
+dx3 = ox+20*dpx+w+(y+dy+h)*ax;
 dy3 = oy+(x+dx+w)*ay+20*dpy+h;
 /*
 if keyboard_check(ord("1")){dx1 = mouse_x-x;dy1 = mouse_y-y;}

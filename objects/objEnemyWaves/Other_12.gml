@@ -1,6 +1,4 @@
-if _a = 0{
-	audio_play_sound(amiya_start,2,false)
-}
+///@desc S1 W3
 if _a = 60{
 	instance_create_depth(150,-20,50,objW);
 }

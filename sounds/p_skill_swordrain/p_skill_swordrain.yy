@@ -13,8 +13,8 @@
   "soundFile": "p_skill_swordrain.wav",
   "duration": 1.60593,
   "parent": {
-    "name": "snd",
-    "path": "folders/Sounds/snd.yy",
+    "name": "p_skill",
+    "path": "folders/Sounds/snd/p_skill.yy",
   },
   "resourceVersion": "1.0",
   "name": "p_skill_swordrain",

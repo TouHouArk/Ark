@@ -13,8 +13,8 @@
   "soundFile": "p_imp_grenade_n.wav",
   "duration": 2.543435,
   "parent": {
-    "name": "snd",
-    "path": "folders/Sounds/snd.yy",
+    "name": "p_imp",
+    "path": "folders/Sounds/snd/p_imp.yy",
   },
   "resourceVersion": "1.0",
   "name": "p_imp_grenade_n",

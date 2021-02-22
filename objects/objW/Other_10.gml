@@ -18,7 +18,7 @@ switch(action){
 			tgx = home_x + mtgx;
 			tgy = home_y + mtgy;
 			supermove = true;
-			projectile_W_1(instance_create_depth(x,y,-50,objEnemyMissle));
+			projectile_W_1(instance_create_depth(x,y,global.bullet_depth,objEnemyMissle));
 		}
 		if _a = 255{
 			tgx = home_x;
@@ -45,7 +45,7 @@ switch(action){
 			tgx = home_x;
 		}
 		if _a >= 120 && _a <= 300 && _a mod 8 = 0{
-			projectile_W_2(instance_create_depth(x,y,-50,objEnemyMissle));
+			projectile_W_2(instance_create_depth(x,y,global.bullet_depth,objEnemyMissle));
 		}
 		if _a = 330{
 			skill = true;
@@ -71,14 +71,14 @@ switch(action){
 	break;
 	case 3 :
 		if _a >= 120 && _a <= 180{
-			projectile_W_3(instance_create_depth(home_x,home_y,-50,objEnemyMissle),180+(_a-120)*6,80,1);
+			projectile_W_3(instance_create_depth(home_x,home_y,global.bullet_depth,objEnemyMissle),180+(_a-120)*6,80,1);
 		}
 		if _a >= 130 && _a <= 190{
-			projectile_W_3(instance_create_depth(home_x,home_y,-50,objEnemyMissle),-(_a-130)*6,70,2);
+			projectile_W_3(instance_create_depth(home_x,home_y,global.bullet_depth,objEnemyMissle),-(_a-130)*6,70,2);
 		}
 		if _a >= 150 && _a < 180{
-			projectile_W_3(instance_create_depth(home_x,home_y,-50,objEnemyMissle),270-(_a-150+1)*6,60,3);
-			projectile_W_3(instance_create_depth(home_x,home_y,-50,objEnemyMissle),270+(_a-150)*6,60,3);
+			projectile_W_3(instance_create_depth(home_x,home_y,global.bullet_depth,objEnemyMissle),270-(_a-150+1)*6,60,3);
+			projectile_W_3(instance_create_depth(home_x,home_y,global.bullet_depth,objEnemyMissle),270+(_a-150)*6,60,3);
 		}
 		
 		if _a >= 180 && _a <= 360{
@@ -114,8 +114,8 @@ switch(action){
 			tgy = 200;
 		}
 		if ((_a >= 220 && _a <= 330) || (_a >= 360 && _a <= 470)) && _a mod 20 = 0{
-			projectile_W_4(instance_create_depth(x,y,-50,objEnemyMissle),3,90);
-			projectile_W_4(instance_create_depth(x,y,-50,objEnemyMissle),3,270);
+			projectile_W_4(instance_create_depth(x,y,global.bullet_depth,objEnemyMissle),3,90);
+			projectile_W_4(instance_create_depth(x,y,global.bullet_depth,objEnemyMissle),3,270);
 		}
 		if _a = 360{
 			tgx = 300-tgx;
@@ -146,7 +146,7 @@ switch(action){
 					_tgy = max_y*2*(0.5 - ((i/(bullets/4)) mod 1));
 				}
 				_tgx = max_x*(-1+i/bullets*2);
-				var _i = instance_create_depth(x,y,-50,objEnemyMissle);
+				var _i = instance_create_depth(x,y,global.bullet_depth,objEnemyMissle);
 				projectile_W_3(_i,
 				point_direction(x,y,tgx+_tgx,tgy+_tgy),
 				point_distance(x,y,tgx+_tgx,tgy+_tgy),

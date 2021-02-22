@@ -13,8 +13,8 @@
   "soundFile": "b_char_atkboost.wav",
   "duration": 2.122483,
   "parent": {
-    "name": "snd",
-    "path": "folders/Sounds/snd.yy",
+    "name": "b_char",
+    "path": "folders/Sounds/snd/b_char.yy",
   },
   "resourceVersion": "1.0",
   "name": "b_char_atkboost",

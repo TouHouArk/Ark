@@ -16,9 +16,9 @@ if room = rBattle{
 		draw_set_font(fntENGs);
 		draw_text(150,160,"OPERATION");
 		draw_set_font(fntENG);
-		draw_text(150,190,string(stateid[0]));
+		draw_text(150,190,string(stageid[0]));
 		draw_set_font(fntCHS);
-		draw_text(150,225,string(statename[0]));
+		draw_text(150,225,string(stagename[0]));
 		draw_set_alpha(1);
 	}
 }
