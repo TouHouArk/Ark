@@ -47,17 +47,38 @@ if daze <= 0{
 				if _a >= _t*2{
 					ad = -ad;
 				}
-				if _a mod 2 = 0 && _a < _t2{
-					for(var i = 0;i < 6;i++){
-						var _i = instance_create_depth(x,y,global.bullet_depth,objEnemyBullet);
+				if _a mod 15 = 0 && _a < _t2{
+					for(var i = 0;i < 8;i++){
+						var _i = instance_create_depth(x+lengthdir_x(0,0+i*360/8),y+lengthdir_y(0,0+i*360/8),global.bullet_depth,objEnemyBulletJump);
 						_i.sprite_index = sprBD8;
-						_i.speed = 3;
-						_i.direction = _a/_t*360*ad+i*60;
-						_i.dspd = 0.5*ad;
-						_i.dmg = atk/6;
+						_i.image_index = 0;
+						_i.speed = 5;
+						_i.direction = _a/25*2+i*360/8;
+						_i.gravity_direction = 270;
+						_i.dspd = 8;
+						_i.jump_times = 3;
+						_i.jump_cd = 60;
+						_i.alarm[0] = 60;
+
+						_i.jump_speed[0] = 1;
+						_i.jump_friction[0] = 0;
+						_i.jump_direction[0] = 0;
+						_i.jump_dspd[0] = 0;
+						_i.jump_dspd_a[0] = 0;
+
+						_i.jump_speed[1] = 3;
+						_i.jump_friction[1] = 0;
+						_i.jump_direction[1] = 0;
+						_i.jump_dspd[1] = 0;
+						_i.jump_dspd_a[1] = 0;
+
+						_i.jump_speed[2] = 1.50;
+						_i.jump_friction[2] = 0;
+						_i.jump_direction[2] = 135;
+						_i.jump_dspd[2] = 0;
+						_i.jump_dspd_a[2] = 0;
+						_i.dmg = atk/4;
 						_i.dmgtype = damage_type.Art;
-						_i.sound = e_imp_uav_nlaser;
-						speed = 0;
 					}
 				}
 			}

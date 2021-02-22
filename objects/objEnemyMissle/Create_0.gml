@@ -15,6 +15,7 @@ _bang = irandom(359);
 
 aspd = 0;
 dspd = 0;
+dspd_a = 0;
 
 d_sprite_index = 0;
 d_aspd = 0;
