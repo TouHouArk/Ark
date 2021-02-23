@@ -1,0 +1,9 @@
+high = 20;
+st = false;
+ed = false;
+pow = 0.5;
+spd = 0.02;
+maxalp = 1;
+alarm[0] = 120;
+alarm[1] = 1;
+image_alpha = 0;

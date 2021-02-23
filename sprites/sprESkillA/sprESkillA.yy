@@ -100,8 +100,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"b80422bd-e6ac-4e65-9e15-6e4e7bd672d5","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Player",
-    "path": "folders/Sprites/Player.yy",
+    "name": "Effect",
+    "path": "folders/Sprites/Effect.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprESkillA",

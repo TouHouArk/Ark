@@ -79,3 +79,5 @@ part_type_speed(part_nearbullet,3,5,0,0);
 part_type_direction(part_nearbullet,30,150,0,0);
 part_type_color1(part_nearbullet,c_white);
 part_type_alpha2(part_nearbullet,1,0);
+
+cheat_time = 0;

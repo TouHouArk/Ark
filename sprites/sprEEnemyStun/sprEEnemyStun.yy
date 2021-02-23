@@ -264,8 +264,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"a11bdc74-d654-4435-bcf4-0f4218e7e1a8","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Enemy",
-    "path": "folders/Sprites/Enemy.yy",
+    "name": "Effect",
+    "path": "folders/Sprites/Effect.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprEEnemyStun",

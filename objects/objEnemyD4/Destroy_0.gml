@@ -1,4 +1,4 @@
 event_inherited();
-if instance_exists(shield){
-	instance_destroy(shield);
+if instance_exists(summon){
+	instance_destroy(summon);
 }

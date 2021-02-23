@@ -68,8 +68,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"d08f7c0e-3918-4d08-8f3b-2ab2b506acdd","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Enemy",
-    "path": "folders/Sprites/Enemy.yy",
+    "name": "Effect",
+    "path": "folders/Sprites/Effect.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprEEnemyDaze",

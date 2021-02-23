@@ -76,8 +76,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"c72ad0a3-825b-4211-b844-25d3bbc5f9fa","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Player",
-    "path": "folders/Sprites/Player.yy",
+    "name": "Effect",
+    "path": "folders/Sprites/Effect.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprESkillAmiya1",

@@ -83,6 +83,11 @@ global.hard_debuff1 = false;
 global.hard_debuff2 = false;
 global.hard_debuff3 = false;
 
+global.border_left = 60;
+global.border_right = 300-60;
+global.border_up = 20;
+global.border_down = 400-20;
+
 //初始化道具列表
 global.enable_items = ds_list_create();
 //这里是道具列表

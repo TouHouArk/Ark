@@ -126,7 +126,6 @@ if _a >= 0 && _a <= 1200{
 	}
 	
 	if _a >= 4200 && !instance_exists(objEnemyD3){
-		wave += 1;
-		_a = -120;
+		ed = true;
 	}
 }

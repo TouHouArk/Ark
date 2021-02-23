@@ -68,8 +68,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"d860358e-b2e3-42ce-93f1-7be78d1bc14b","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Enemy",
-    "path": "folders/Sprites/Enemy.yy",
+    "name": "Bullet",
+    "path": "folders/Sprites/Enemy/Bullet.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprBD1",

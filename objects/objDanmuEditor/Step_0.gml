@@ -26,7 +26,7 @@ if _a mod dt = 0{
 			}
 		}
 		if double && i >= num{
-			_i.direction = -_i.direction;
+			_i.direction = _i.direction+180;
 			_i.aspd = -_i.aspd;
 			_i.dspd = -_i.dspd;
 			_i.dspd_a = -_i.dspd_a;

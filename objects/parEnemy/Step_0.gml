@@ -4,6 +4,9 @@ if lifetime != -1 && daze <= 0 && stun <= 0 && ctrl <= 0{
 		instance_destroy();
 	}
 }
+if hp <= 0{
+	instance_destroy();
+}
 if daze > 0{
 	daze -= 1;
 }

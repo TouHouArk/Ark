@@ -1,11 +1,13 @@
 for(var i = 0;i < _b;i++){
 	var _i = instance_create_depth(x,y,global.bullet_depth,objEnemyMissle);
 	_i.sprite_index = d_sprite_index;
+	_i.image_index = d_image_index;
+	_i.image_speed = d_image_speed;
 	_i.speed = d_speed;
 	_i.alarm[0] = d_time;
 	_i.dspd = 5;
 	_i._b = d_b
-	_i.direction = _bang+i*360/_b;
+	_i.direction = direction+_bang+i*360/_b;
 	_i.dmg = round(dmg*dmg_buff);
 	_i.dmg_buff = dmg_buff;
 	_i.aspd = d_aspd;
@@ -13,4 +15,10 @@ for(var i = 0;i < _b;i++){
 	_i.image_angle = image_angle;
 	_i.range = range/2;
 	_i._bang = d_bang;
+	_i._bs = d_bs;
+	_i._bii = d_bii;
+	_i._bis = d_bis;
+	_i._bspd = d_bspd;
+	_i._baspd = d_baspd;
+	_i._bdspd = d_bdspd;
 }

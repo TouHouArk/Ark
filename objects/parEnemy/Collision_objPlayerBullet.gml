@@ -1,7 +1,4 @@
 hp -= damage_calc(other.dmg,defence,resist,other.dmgtype,true);
-if hp <= 0{
-	instance_destroy();
-}
 if other.daze_addon > 0 && daze != -1{
 	if daze <= 0{
 		(instance_create_depth(x,y,-100,objEEnemyDaze)).target = id;

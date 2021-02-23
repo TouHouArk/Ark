@@ -1,0 +1,1 @@
+image_alpha = clamp(image_alpha+spd*(st-ed*2),0,maxalp);

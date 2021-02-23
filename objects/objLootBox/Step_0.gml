@@ -1,1 +1,1 @@
-move_near_to(objPlayer.x,objPlayer.y,100,0.2);
+move_near_to(objPlayer.x,objPlayer.y,100,0.2,5);

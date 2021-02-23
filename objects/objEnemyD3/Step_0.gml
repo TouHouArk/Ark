@@ -118,3 +118,4 @@ switch(type){
 		}
 	break;
 }
+event_inherited();

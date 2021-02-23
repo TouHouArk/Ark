@@ -24,8 +24,8 @@ if stuck <= 0 && !global.froze{
 	var input_y = keyboard_check(vk_down)-keyboard_check(vk_up);
 	var input_speed = move_speed*(1-keyboard_check(vk_shift)*0.5);
 
-	x = clamp(x+input_x*input_speed,65,300-65);
-	y = clamp(y+input_y*input_speed,35,400-35);
+	x = clamp(x+input_x*input_speed,global.border_left+5,global.border_right-5);
+	y = clamp(y+input_y*input_speed,global.border_up+15,global.border_down-15);
 }
 
 if (keyboard_check(vk_space) || autoattack) && _s <= 0 && disarm <= 0 && !global.froze{

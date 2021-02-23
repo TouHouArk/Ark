@@ -1,8 +1,18 @@
 /// @desc showgui
 draw_set_alpha(1);
+draw_set_color(c_black);
+draw_rectangle(0,0,600,global.border_up*2+1,false);
+draw_rectangle(0,global.border_down*2-1,600,800,false);
+draw_sprite_ext(sprUIBorderV,0,0,global.border_up*2,1,1,0,c_white,1);
+draw_sprite_ext(sprUIBorderV,0,0,global.border_down*2,1,-1,0,c_white,1);
+draw_rectangle(0,0,global.border_left*2,800,false);
+draw_rectangle(global.border_right*2-1,0,600,800,false);
+draw_sprite_ext(sprUIBorderH,0,global.border_left*2,0,1,1,0,c_white,1);
+draw_sprite_ext(sprUIBorderH,0,global.border_right*2,0,-1,1,0,c_white,1);
 draw_set_color(c_white);
-draw_sprite(sprUIBorder,0,0,0);
+
 if global.showgui{
+	draw_sprite(sprUIBackground,0,600,0);
 	draw_set_font(fntText);
 	draw_set_valign(fa_middle);
 	draw_set_halign(fa_center);

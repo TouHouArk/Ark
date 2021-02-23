@@ -10,7 +10,7 @@ if daze <= 0{
 				if _a = _t + 5 || _a = _t+8{
 					var _i = instance_create_depth(x+lengthdir_x(10,image_angle-90),y+lengthdir_y(10,image_angle-90),global.bullet_depth,objEnemyBullet);
 					_i.sprite_index = sprBD7;
-					_i.speed = 6;
+					_i.speed = 3;
 					_i.direction = _dr;
 					_i.image_yscale = 4.5;
 					_i.image_angle = _i.direction + 90;
@@ -26,7 +26,7 @@ if daze <= 0{
 				speed = spd*spdbuff;
 			}
 			direction = dir;
-			if (x <= 65 && dir > 90 && dir < 270) || (x >= 235 && (dir < 90 || dir > 270)){
+			if (x <= global.border_left+5 && dir > 90 && dir < 270) || (x >= global.border_right-5 && (dir < 90 || dir > 270)){
 				dir = 180-dir;
 			}
 		break;
@@ -54,7 +54,6 @@ if daze <= 0{
 						_i.image_index = 0;
 						_i.speed = 5;
 						_i.direction = _a/25*2+i*360/8;
-						_i.gravity_direction = 270;
 						_i.dspd = 8;
 						_i.jump_times = 3;
 						_i.jump_cd = 60;

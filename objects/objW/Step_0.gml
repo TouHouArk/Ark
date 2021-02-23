@@ -1,5 +1,3 @@
-event_inherited();
-
 if !ast{
 	if abs(x-home_x) >= 1 || abs(y-home_y) >= 1{
 		x += sign(home_x-x);
@@ -8,50 +6,90 @@ if !ast{
 		x = home_x;
 		y = home_y;
 		ast = true;
+		inv = false;
 	}
 }else{
-	
-	_a += 1;
-	if _a < 60 && powerup{
-		_a = 60;
-	}
-	if _a <= 120{
-		y = tgy+dsin(_a*1.5)*5;
-	}
-	event_user(0);
-	
-	if hp <= maxhp/2 && !powerup{
-		powerup = true;
-		atk = atk*3;
-		powerup_effect = instance_create_depth(x,y,depth-1,objESkillNormal);
-		with(powerup_effect){event_user(2);}
-		powerup_effect.target = id;
-	}
-	
-	if !skill{
-		if supermove && (abs(x-tgx) >= 1 || abs(y-tgy) >= 1){
-				x += (tgx-x)/4*3;
-				y += (tgy-y)/4*3;
-				create_shadow(objEShadowAlpha);
-		}else if abs(x-tgx) >= 1 || abs(y-tgy) >= 1{
-				repeat(2){
-					x += sign(tgx-x);
-					y += sign(tgy-y);
-				}
-				(create_shadow(objEShadowAlpha)).image_alpha = 0.5;
-		}else{
-			x = tgx;
-			y = tgy;
-			supermove = false;
+	if !inv{
+		if (hp <= maxhp/2 || last_spell) && oa_st{
+			_a += 1;
+			if !instance_exists(objWDebuff){
+				instance_create_depth(objPlayer.x,objPlayer.y,100,objWDebuff);
+			}
+			event_user(spell);
+		}else if !spelling{
+			_a += 1;
+			event_user(spell+10);
 		}
-	
-		if x != tgx{
-			image_speed = 0;
-			sprite_index = sprWMove;
-			image_index = 0+(x < tgx);
-		}else{
-			image_speed = 1;
-			sprite_index = sprW;
+		if !last_spell && hp > 1 && hp <= maxhp/2 && !oa_st && !spelling{
+			instance_create_depth(0,0,-200,objOA);
+			objOA.text = spell_name[spell];
+			objOA.target = id;
+			spelling = true;
+		}
+	}else{
+		hp = min(round(hp+maxhp/180),maxhp);
+		if hp = maxhp{
+			inv = false;
+			_a = 0;
 		}
 	}
 }
+if hp <= 0{
+	change_bullet_to_point();
+	with(objEnemyD4){instance_destroy()}
+	if life > 1{
+		life -= 1;
+		inv = true;
+		oa_st = false;
+		spell += 1;
+		spelling = false;
+		with(objOA){ed = true;}
+		if life = 1{
+			last_spell = true;
+			instance_create_depth(0,0,-200,objOA);
+			objOA.text = spell_name[spell];
+			objOA.target = id;
+		}
+	}else{
+		inv = true;
+		ed = true;
+		sprite_index = sprWDie;
+		vspeed = -5;
+		hspeed = irandom_range(-5,5)/10;
+		gravity = 0.25;
+		with(objOA){ed = true;}
+		if powerup_effect != -1 && instance_exists(powerup_effect){
+			instance_destroy(powerup_effect);
+		}
+		var bullets = xp/10;
+		var max_x = 80;
+		var max_y = 80;
+		for(var i = 0;i < bullets;i++){
+			var _tgx = 0;
+			var _tgy = 0;
+			if i < bullets/4 || (i >= bullets/2 && i < bullets/4*3){
+				_tgy = max_y*2*(-0.5 + ((i/(bullets/4)) mod 1));
+			}else{
+				_tgy = max_y*2*(0.5 - ((i/(bullets/4)) mod 1));
+			}
+			_tgx = max_x*(-1+i/bullets*2);
+			var _i = instance_create_depth(x,y,global.bullet_depth,objEnemyMissle);
+			projectile_W_3(_i,
+			point_direction(x,y,150+_tgx,100+_tgy),
+			point_distance(x,y,150+_tgx,100+_tgy),
+			4);
+			_i.inv = true;
+			_i._b = 10;
+			_i._bang = point_direction(tgx+_tgx,tgy+_tgy,tgx,tgy);
+			_i.sprite_index = sprBW2;
+			_i.image_angle = irandom(359);
+			_i.image_index = 1;
+			_i.image_speed = 0;
+		}
+	}
+	hp = 1;
+}
+if ed && y >= 400{
+	instance_destroy();
+}
+event_inherited();

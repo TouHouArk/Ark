@@ -8,3 +8,4 @@ dspd = 0;
 dspd_a = 0;
 
 inv = false;
+_a = 0;
