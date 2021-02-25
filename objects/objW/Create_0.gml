@@ -34,6 +34,6 @@ powerup_effect = -1;
 
 xp = 800;
 
-spell_name[0] = "【佣符】惊吓盒子"
-spell_name[1] = "【佣符】落井下石"
-spell_name[2] = "【佣符】乱炸无歇"
+spell_name[0] = "爆符「近身探测爆炸物」"
+spell_name[1] = "障符「视线遮挡用烟雾弹」"
+spell_name[2] = "「乱炸无歇」"

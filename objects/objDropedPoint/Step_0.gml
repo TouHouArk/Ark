@@ -1,7 +1,3 @@
-if vspeed > 2{vspeed = 2;gravity = 0;}
-if abs(hspeed) > 0{hspeed = sign(hspeed)*max(abs(hspeed)-0.2,0)}
-_a += 1;
-//image_xscale = dsin(_a);
-if gravity = 0{
-	move_near_to(objPlayer.x,objPlayer.y,range,acce,5);
-}
+vspeed = !st*min(1,vspeed)+st*vspeed;
+hspeed = !st*sign(hspeed)*max(0,abs(hspeed)-0.2)+st*hspeed;
+move_near_to(objPlayer.x,objPlayer.y,st*range,acce,5);

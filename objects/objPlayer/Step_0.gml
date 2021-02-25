@@ -111,7 +111,7 @@ if hp <= 0{
 		}
 	}
 	
-	if y <= 120{
+	if y <= room_height*0.3{
 		with(objDropedPoint){acce = 1;range = -1;}
 	}
 	

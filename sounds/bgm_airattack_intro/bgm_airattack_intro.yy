@@ -10,8 +10,8 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "bgm_airattack_intro.wav",
-  "duration": 13.38178,
+  "soundFile": "bgm_airattack_intro.mp3",
+  "duration": 13.4058132,
   "parent": {
     "name": "bgm",
     "path": "folders/Sounds/bgm.yy",
