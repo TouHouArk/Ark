@@ -1,6 +1,7 @@
 /// @desc skill controller
 if skill_sp[skillselect] = skill_spneed[skillselect] || skill_charged[skillselect] >= 1{
 	skill = skill_id[skillselect];
+	skill_atksploop_a = 0;
 	if skill_charged[skillselect] >= 1{
 		skill_charged[skillselect] -= 1;
 	}else{

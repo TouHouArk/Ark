@@ -1,0 +1,20 @@
+target = objPlayer;
+image_speed = 0;
+_a = 0;
+_t = 120;
+spd = 1;
+alp1 = 0;
+alp2 = 0;
+alp3 = 0;
+alp4 = 0;
+alp5 = 0;
+ind = 0;
+
+stand1 = instance_create_depth(x,y,50,parSpriteMask);
+stand2 = instance_create_depth(x,y,50,parSpriteMask);
+stand1.sprite_index = sprite_index;
+stand1.image_speed = 0;
+stand1.image_index = 3;
+stand2.sprite_index = sprite_index;
+stand2.image_speed = 0;
+stand2.image_index = 4;

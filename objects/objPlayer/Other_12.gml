@@ -36,8 +36,7 @@ switch(skill){
 	break;
 	case 8: //WIP
 		global.money += 2;
-		event_user(0);
-		disarm = skill_duration[skillselect]*room_speed/2;
+		cast_instant();
 		if global.fun{
 			skill_sp[skillselect] = skill_spneed[skillselect]-1;
 		}
@@ -91,13 +90,17 @@ switch(skill){
 		hp = maxhp;
 	break;
 	case 17:
+		with(skill_effect){instance_change(objEDefence,true)}
 		disarm = skill_duration[skillselect]*room_speed/2;
-		skill_tag[0] = defencebuff*2.3;
+		skill_tag[0] = defencebuff*1.3;
 		defencebuff += skill_tag[0];
-		skill_tag[1] = maxhp*0.05;
+		skill_tag[1] = resistbuff*0.8;
+		resistbuff += skill_tag[0];
+		skill_tag[2] = maxhp*0.03;
 		autoregen += skill_tag[1];
 	break;
-	case 18: //WIP
+	case 18:
+		cast_instant();
 	break;
 	case 19:
 		skill_tag[0] = shootbuff*0.7;

@@ -69,10 +69,10 @@ if bg_y >= 40{
 						if (_l < 0 || bg[# _l,y_place] = 0) && (_r > bg_w || bg[# _r,y_place] = 0){
 							dx = min(vx+mx,6);
 							canbe_placed = true;
+							if with_way{
+								ds_list_delete(has_way,i);
+							}
 						}
-					}
-					if with_way{
-						ds_list_delete(has_way,i);
 					}
 				}
 			}
@@ -110,6 +110,7 @@ if bg_y >= 40{
 				}
 			}
 		}
+		//清除已使用的ds
 		if ds_exists(new_map,ds_type_map){
 			ds_map_destroy(new_map);
 		}

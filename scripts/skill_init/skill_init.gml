@@ -154,7 +154,7 @@ function skill_init(){
 	global.skill_charge[16] = 1;
 	global.skill_sound[16] = -1;/*WIP*/
 	global.skill_name[17] = "壳状防御";
-	global.skill_desc[17] = "停止攻击;防御力<skill>+230%</>,每秒恢复最大生命的<skill>5%</>";
+	global.skill_desc[17] = "<debuff>停止攻击</>;防御力<skill>+130%</>,法术抗性<skill>+80%</>,每秒恢复最大生命的<skill>3%</>";
 	global.skill_spstart[17] = 0;
 	global.skill_spneed[17] = 40;
 	global.skill_duration[17] = 30;
@@ -163,7 +163,7 @@ function skill_init(){
 	global.skill_charge[17] = 1;
 	global.skill_sound[17] = b_char_defboost;
 	global.skill_name[18] = "磁爆锤";
-	global.skill_desc[18] = "立刻对周围小范围敌人造成相当于<skill>攻击力2000%</>的物理伤害<br><ps>技能受击回复</>";
+	global.skill_desc[18] = "立刻对周围小范围敌人造成相当于<skill>攻击力2000%</>的物理伤害并击晕<skill>4</>秒<br><ps>技能受击回复,子弹数量仅影响其范围</>";
 	global.skill_spstart[18] = 0;
 	global.skill_spneed[18] = 17;
 	global.skill_duration[18] = 1;

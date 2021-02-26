@@ -102,10 +102,10 @@ function item_get(itemid){
 		case 97 : objPlayer.skill_spspd += 0.25;break;
 		case 98 : objPlayer.skill_spspd += 0.35;break;
 		case 99 : objPlayer.skill_spspd += 0.5;break;
-		case 100 : break;
-		case 101 : break;
-		case 102 : break;
-		case 103 : break;
+		case 100 : ds_list_add(objPlayer.skill_atksploop,floor(3.5*room_speed/2));break;
+		case 101 : ds_list_add(objPlayer.skill_atksploop,floor(3*room_speed/2));break;
+		case 102 : ds_list_add(objPlayer.skill_atksploop,floor(2.5*room_speed/2));break;
+		case 103 : ds_list_add(objPlayer.skill_atksploop,floor(1.5*room_speed/2));break;
 		case 104 : 
 		case 105 : 
 		case 106 : 

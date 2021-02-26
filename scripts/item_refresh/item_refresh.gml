@@ -25,7 +25,9 @@ function item_refresh(){
 
 	global.enemy_killed = 0;
 	global.money = 0;
-	global.hard_debuff = 0;
+	global.hard_debuff1 = 0;
+	global.hard_debuff2 = 0;
+	global.hard_debuff3 = 0;
 	for(var i = 0;i < ds_list_size(global.items_carry);i++){
 		var itemid = ds_list_find_value(global.items_carry,i);
 		item_get(itemid);

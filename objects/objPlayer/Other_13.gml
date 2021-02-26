@@ -65,7 +65,8 @@ switch(skill){
 	break;
 	case 17:
 		defencebuff -= skill_tag[0];
-		autoregen -= skill_tag[1];
+		resistbuff -= skill_tag[1];
+		autoregen -= skill_tag[2];
 	break;
 	case 19:
 		shootbuff -= skill_tag[0];

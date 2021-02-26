@@ -90,8 +90,16 @@ if hp <= 0{
 	}
 	hp = min(hp+autoregen/room_speed,maxhp);
 	if skill = -1{
+		//自然恢复SP
 		if skill_sptype[skillselect] = sp_type.Auto{
 			skill_sp[skillselect] = min(skill_sp[skillselect]+skill_spspd/room_speed*2,skill_spneed[skillselect]);
+		}else skill_sptype[skillselect] = sp_type.Attacked || skill_sptype[skillselect] = sp_type.GetAttacked{
+			skill_atksploop_a += 1;
+			for(var i = 0;i < ds_list_size(skill_atksploop);i++){
+				if skill_atksploop_a mod skill_atksploop[| i] = 0{
+					skill_sp[skillselect] = min(skill_sp[skillselect]+1,skill_spneed[skillselect]);
+				}
+			}
 		}
 		
 		if skill_sp[skillselect] = skill_spneed[skillselect] && skill_charge[skillselect] > 1 && skill_charged[skillselect] < skill_charge[skillselect] - 1{
@@ -101,7 +109,7 @@ if hp <= 0{
 		
 		if keyboard_check_pressed(ord("S")){
 			skillselect = (skillselect + 1) mod 3;
-		}else if ((keyboard_check_pressed(ord("X")) && skill_casttype[skillselect] = cast_type.Cast) || skill_casttype[skillselect] = cast_type.Auto){
+		}else if ((keyboard_check_pressed(ord("X")) && skill_casttype[skillselect] = cast_type.Cast) || skill_casttype[skillselect] = cast_type.Auto) && !disarm{
 			event_user(1);
 		}
 	}else if skill_duration[skillselect] != -1{

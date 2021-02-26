@@ -45,6 +45,7 @@ defence = 110;
 resist = 20;
 level_refresh();
 //技能初始化
+skill_num = 3;
 skillselect = 0;
 skill = -1;
 skill_spspd = 1;
@@ -67,6 +68,8 @@ heal_time = 0;
 autoattack = false;
 dmgtype = damage_type.Art;
 dmgtype_o = 1;
+skill_atksploop = ds_list_create();
+skill_atksploop_a = 0;
 //无人机初始化
 orbit_num = 2;
 orbits = ds_list_create();

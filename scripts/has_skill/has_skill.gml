@@ -1,3 +1,10 @@
 function has_skill(skill_id){
-	return (objPlayer.skill_id[0] = skill_id || objPlayer.skill_id[1] = skill_id || objPlayer.skill_id[2] = skill_id);
+	var _v = false;
+	for(var i = 0;i < objPlayer.skill_num;i++){
+		if objPlayer.skill_id[i] = skill_id{
+			_v = true;
+			break;
+		}
+	}
+	return _v;
 }

@@ -46,6 +46,13 @@ if global.showgui{
 	//PRTS标
 	draw_sprite(sprUIPRTS,0,625,58);
 	
+	//备用技能
+	draw_set_alpha(0.5);
+	for(var i = objPlayer.skill_num - 1;i > 0;i--){
+		draw_sprite(sprSkill,objPlayer.skill_id[(objPlayer.skillselect+i) mod objPlayer.skill_num],1029-i*20,387-i*20);
+	}
+	draw_set_alpha(1);
+	
 	//技能说明
 	draw_sprite(sprUISkillInfo,0,662,416);
 	draw_set_valign(fa_middle);

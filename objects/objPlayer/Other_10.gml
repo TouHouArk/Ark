@@ -132,6 +132,26 @@ switch(skill){
 		_i.scale2_to = 1.1;
 		audio_play_sound(p_atk_silver_n,1,false);
 	break;
+	//磁爆锤
+	case 18:
+		var _i = instance_create_depth(x,y-10,global.bullet_depth,objBPlayerRangeSkill);
+		_i.sprite_index = sprBCroissant;
+		_i.dmg = atk*20*skill_dmgscale;
+		_i.dmgtype = damage_type.Physic;
+		_i._t = 5;
+		_i._t2 = 30;
+		_i.outter_index = 0;
+		_i.inner_index = 1;
+		_i.fade_index = 2;
+		_i.scale1_from = 0.3;
+		_i.scale2_from = 0;
+		_i.scale1_mid = 1;
+		_i.scale2_mid = 0.7;
+		_i.scale1_to = 1.1;
+		_i.scale2_to = 2;
+		_i.daze_addon = 4*room_speed/2;
+		//audio_play_sound(p_skill_robotexplo,1,false);
+	break;
 	//火山
 	case 33:
 		for(var i = 0;i < shoot_bullet*6;i++){

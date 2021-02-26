@@ -9,7 +9,7 @@ if daze <= 0{
 				if _a mod 5 = 0{
 					var _i = instance_create_depth(x+lengthdir_x(17,image_angle-90),y+lengthdir_y(17,image_angle-90),global.bullet_depth,objEnemyBullet);
 					_i.sprite_index = sprBD2;
-					_i.speed = 4;
+					_i.speed = 2;
 					_i.direction = image_angle-90+dsin((_a-_t)/5*45)*5*(x>=150? 1 : -1);
 					_i.dmg = atk;
 					_i.sound = e_imp_general_n;

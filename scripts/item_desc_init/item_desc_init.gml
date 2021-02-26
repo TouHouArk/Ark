@@ -105,10 +105,10 @@ function item_desc_init(){
 	global.item_desc[97] = "所有自然回复技能的技力恢复<skill>+0.25/s</>";
 	global.item_desc[98] = "所有自然回复技能的技力恢复<skill>+0.35/s</>";
 	global.item_desc[99] = "所有自然回复技能的技力恢复<skill>+0.5/s</>";
-	global.item_desc[100] = "所有攻击和受击回复的技能每3.5秒回复1点技力";
-	global.item_desc[101] = "所有攻击和受击回复的技能每3秒回复1点技力";
-	global.item_desc[102] = "所有攻击和受击回复的技能每2.5秒回复1点技力";
-	global.item_desc[103] = "所有攻击和受击回复的技能每1.5秒回复1点技力";
+	global.item_desc[100] = "所有<ps>攻击</>和<ps>受击回复</>的技能每3.5秒<skill>回复1点技力</>";
+	global.item_desc[101] = "所有<ps>攻击</>和<ps>受击回复</>的技能每3秒<skill>回复1点技力</>";
+	global.item_desc[102] = "所有<ps>攻击</>和<ps>受击回复</>的技能每2.5秒<skill>回复1点技力</>";
+	global.item_desc[103] = "所有<ps>攻击</>和<ps>受击回复</>的技能每1.5秒<skill>回复1点技力</>";
 	for(var i = 104;i<=151;i++){
 		//global.item_desc[i] = "用这个技能<debuff>替换</>你持有的三个技能的<skill>其中一个</>";
 		global.item_desc[i] = "用这个技能<debuff>替换</>你当前选中的<skill>那个技能</>";
