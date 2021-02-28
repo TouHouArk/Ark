@@ -47,12 +47,11 @@ ts_add_keyword("<rare2>", ts_outline(true,make_color_rgb(220,10,30)));
 ts_add_keyword("<shadow>", ts_shadow(true,0,2,c_black,0.2));
 
 global.showgui = true;
+global.phonegui = (os_type == os_android || os_type == os_ios);
 global.bullet_depth = -30;
 global.froze = true;
 global.fun = false;
 //event_user(0);
-bgcolor = make_color_rgb(54,54,54);
-hpcolor = make_color_rgb(0,156,237);
 
 global.stage = 0;
 global.wave = 0;

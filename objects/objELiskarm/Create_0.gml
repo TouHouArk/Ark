@@ -1,0 +1,10 @@
+tgx = x;
+tgy = y;
+st = false;
+point_x[0] = 0;
+point_y[0] = 0;
+ran = 15;
+times = 1;
+_a = 0;
+_t = 13+irandom(6);
+pc = 0;

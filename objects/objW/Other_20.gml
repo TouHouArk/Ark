@@ -7,6 +7,7 @@ if _a mod 90 = 0{
 		_i.direction = _a/60*30+i*360/8;
 		_i.aspd = 10;
 		_i.dmg = atk;
+		_i.dmg_buff = 0.8;
 		_i.dmgtype = damage_type.Physic;
 		
 		_i.range = 40;

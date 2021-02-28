@@ -152,6 +152,15 @@ switch(skill){
 		_i.daze_addon = 4*room_speed/2;
 		//audio_play_sound(p_skill_robotexplo,1,false);
 	break;
+	//反击电弧
+	case 19:
+		var _i = instance_create_depth(x,y-10,global.bullet_depth,objBLiskarm);
+		_i.dmg = atk;
+		_i.dmgtype = damage_type.Art;
+		if get_chance() <= 25*global.luck_rate{
+			_i.daze_addon = shoot_bullet*room_speed/2;
+		}
+	break;
 	//火山
 	case 33:
 		for(var i = 0;i < shoot_bullet*6;i++){

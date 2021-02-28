@@ -43,6 +43,7 @@ if _a mod 60 = 0{
 			_i.d_bdspd = -_i.d_bdspd;
 		}
 		_i.dmg = atk*1.5;
+		_i.dmg_buff = 0.5;
 		_i.dmgtype = damage_type.Physic;
 	}
 }

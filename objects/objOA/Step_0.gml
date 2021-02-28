@@ -25,6 +25,7 @@ if !st{
 		if target != -1 && instance_exists(target){
 			target.oa_st = true;
 		}
+		objPlayer.inv = 0;
 	}
 }
 if ed{

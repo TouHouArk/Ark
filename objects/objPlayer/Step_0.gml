@@ -85,15 +85,15 @@ if hp <= 0{
 		game_restart();
 	}
 }else if !global.froze{
-	if hp <= maxhp/2 && skill_casttype[skillselect] = cast_type.AutoWhenHPLow{
-		event_user(1);
-	}
 	hp = min(hp+autoregen/room_speed,maxhp);
 	if skill = -1{
+		if hp <= maxhp/2 && skill_casttype[skillselect] = cast_type.AutoWhenHPLow{
+			event_user(1);
+		}
 		//自然恢复SP
-		if skill_sptype[skillselect] = sp_type.Auto{
+		if skill_sptype[skillselect] == sp_type.Auto{
 			skill_sp[skillselect] = min(skill_sp[skillselect]+skill_spspd/room_speed*2,skill_spneed[skillselect]);
-		}else skill_sptype[skillselect] = sp_type.Attacked || skill_sptype[skillselect] = sp_type.GetAttacked{
+		}else if skill_sptype[skillselect] = sp_type.Attacked || skill_sptype[skillselect] = sp_type.GetAttacked{
 			skill_atksploop_a += 1;
 			for(var i = 0;i < ds_list_size(skill_atksploop);i++){
 				if skill_atksploop_a mod skill_atksploop[| i] = 0{

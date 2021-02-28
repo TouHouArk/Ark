@@ -180,7 +180,7 @@
   ],
   "parent": {
     "name": "Effect",
-    "path": "folders/Sprites/Effect.yy",
+    "path": "folders/Sprites/Player/Effect.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprESkillC",

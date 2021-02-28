@@ -6,7 +6,12 @@ if daze <= 0{
 				_a = 0;
 				speed = spd*spdbuff;
 			}else if _a >= _t && in_room(x,y){
-				if _a = _t{_dr = point_direction(x+lengthdir_x(10,image_angle-90),y+lengthdir_y(10,image_angle-90),objPlayer.x,objPlayer.y)}
+				if _a = _t{
+					_dr = point_direction(x+lengthdir_x(10,image_angle-90),y+lengthdir_y(10,image_angle-90),objPlayer.x,objPlayer.y);
+					if _dr >= image_angle && _dr <= image_angle + 180{
+						_a = _t+30;
+					}
+				}
 				if _a = _t + 5 || _a = _t+8{
 					var _i = instance_create_depth(x+lengthdir_x(10,image_angle-90),y+lengthdir_y(10,image_angle-90),global.bullet_depth,objEnemyBullet);
 					_i.sprite_index = sprBD7;

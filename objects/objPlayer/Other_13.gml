@@ -72,6 +72,9 @@ switch(skill){
 		shootbuff -= skill_tag[0];
 		atkbuff -= skill_tag[1];
 	break;
+	case 20:
+		hp = min(hp+atk*1.8,maxhp);
+	break;
 	case 21:
 		shootbuff -= skill_tag[0];
 		atkbuff -= skill_tag[1];

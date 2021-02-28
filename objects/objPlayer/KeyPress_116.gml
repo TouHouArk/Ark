@@ -13,7 +13,9 @@
 //item_add(115);  //真银斩
 
 //item_add(117);  //壳状防御
-item_add(118);  //磁爆锤
+//item_add(118);  //磁爆锤
+//item_add(119);  //反击电弧
+item_add(120);  //急救
 
 //item_add(122);  //天马视域
 //item_add(125);  //过载模式
@@ -21,6 +23,8 @@ item_add(118);  //磁爆锤
 //item_add(133);  //火山
 //item_add(choose(125,109,115,113,147,111))
 cheat_time += 1
-//shoot_bullet = 8;
+autoregen = -50;
+//shoot_bullet = 20;
+//shoot_cd_o = 10;
 //skill_spspd = 50;
-item_add(103);item_add(103);item_add(103);item_add(103);
+//item_add(103);item_add(103);item_add(103);item_add(103);

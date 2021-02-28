@@ -1,8 +1,13 @@
-event_inherited();
+dmg = 100;
+high = 20;
+dmgtype = damage_type.Physic;
+sound = -1;
+daze_addon = 0;
+stun_addon = 0;
+ctrl_addon = 0;
+
 alarm[0] = 0;
 image_speed = 0;
-image_xscale = 0;
-image_yscale = 0;
 max_scale = objPlayer.shoot_bullet/4;
 scale1_from = 0;
 scale2_from = 0;

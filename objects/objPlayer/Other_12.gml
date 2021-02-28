@@ -109,7 +109,11 @@ switch(skill){
 		atkbuff += skill_tag[1];
 	break;
 	case 20:
-		hp = min(hp+atk*1.8,maxhp)
+		var _i = instance_create_depth(x,y,-100,objAnimeBuff);
+		_i.sprite_index = sprEHeal;
+		_i.target = id;
+		_i.alarm[0] = 1;
+		audio_play_sound(p_atk_heal_n,1,false);
 	break;
 	case 21:
 		inv = 10*room_speed/2;

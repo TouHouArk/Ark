@@ -3,11 +3,9 @@ if alp < 1{
 	alp += 0.1;
 }
 if ds = 0{
-	instance_change(objPlayerBullet,false);
-	sprite_index = sprBTexas2;
+	with(target){enemy_get_attacked(other.id)}
 	(instance_create_depth(x,y,-50,objAnimeBuff)).sprite_index = sprBSparkle;
-	alp = 0;
-	image_alpha = 0;
+	instance_destroy();
 }
 if target != -1 && instance_exists(target){
 	x = target.x;
