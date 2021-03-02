@@ -1,3 +1,4 @@
+event_inherited();
 var ct = true;
 if ds_list_size(meeting_objects) >= 1{
 	if ds_list_find_index(meeting_objects,other.id) != -1{

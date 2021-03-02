@@ -5,8 +5,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "parSkyObject",
-    "path": "objects/parSkyObject/parSkyObject.yy",
+    "name": "objPlayerBulletS",
+    "path": "objects/objPlayerBulletS/objPlayerBulletS.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -21,7 +21,6 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":7,"collisionObjectId":null,"parent":{"name":"objPlayerBulletP","path":"objects/objPlayerBulletP/objPlayerBulletP.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"objPlayerBulletP","path":"objects/objPlayerBulletP/objPlayerBulletP.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"parEnemy","path":"objects/parEnemy/parEnemy.yy",},"parent":{"name":"objPlayerBulletP","path":"objects/objPlayerBulletP/objPlayerBulletP.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":1,"collisionObjectId":null,"parent":{"name":"objPlayerBulletP","path":"objects/objPlayerBulletP/objPlayerBulletP.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
@@ -30,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Player",
-    "path": "folders/Objects/Player.yy",
+    "name": "Bullets",
+    "path": "folders/Objects/Player/Bullets.yy",
   },
   "resourceVersion": "1.0",
   "name": "objPlayerBulletP",

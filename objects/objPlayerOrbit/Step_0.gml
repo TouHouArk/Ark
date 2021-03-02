@@ -10,12 +10,13 @@ if keyboard_check(vk_space) && _s <= 0 && !global.froze{
 		}else{
 			_i.dspd = -2+i/(shoot_bullet-1)*4;
 		}
-		_i.aspd = _i.dspd;
+		_i.auto_angle = true;
+		_i.auto_angle_d = 90;
 		_i.dmg = atk;
 		_i.range = range;
 		_i.sound = p_imp_grenade_n;
-		_s = shoot_cd;
 	}
+	_s = shoot_cd;
 }
 
 if _s > 0{

@@ -12,7 +12,9 @@ boom = true;
 
 aspd = 0;
 dspd = 0;
+dspd_a = 0;
 
 daze_addon = 0;
 stun_addon = 0;
 ctrl_addon = 0;
+slow_addon = 0;

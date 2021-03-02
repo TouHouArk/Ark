@@ -29,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Player",
-    "path": "folders/Objects/Player.yy",
+    "name": "Bullets",
+    "path": "folders/Objects/Player/Bullets.yy",
   },
   "resourceVersion": "1.0",
   "name": "objBLiskarm",

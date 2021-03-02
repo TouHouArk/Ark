@@ -1,18 +1,21 @@
 /// @desc attack
+var bullets = shoot_bullet-1;
+var slowdown = keyboard_check(vk_shift);
 switch(skill){
 	//普通攻击
 	default:
 		for(var i = 0;i < shoot_bullet;i++){
-			var _i = instance_create_depth(x+(-(shoot_bullet-1)*0.5+i)*(10-keyboard_check(vk_shift)*5),y-10+abs(i-(shoot_bullet-1)/2)*5,global.bullet_depth,objPlayerBullet);
+			var _i = instance_create_depth(x+(-bullets*0.5+i)*min(10-slowdown*5,(50-slowdown*25)/bullets),y-10+abs(i-bullets/2)*5,global.bullet_depth,objPlayerBullet);
 			_i.sprite_index = sprBAmiya1;
 			_i.vspeed = -5;
 			_i.dmg = atk;
 			if skill != -1{
 				_i.dmg *= skill_dmgscale;
 			}
-			_i.dmgtype = damage_type.Art;
+			_i.dmgtype = dmgtype;
 			_i.sound = p_imp_amiyamag_n;
 		}
+		audio_play_sound(p_atk_amiyamag_n,1,false);
 	break;
 	
 	//精神爆发
@@ -24,7 +27,7 @@ switch(skill){
 			_i.direction = irandom_range(30,150);
 			_i.image_angle = _i.direction - 90;
 			_i.dmg = round(atk*1.6)*skill_dmgscale;
-			_i.dmgtype = damage_type.Art;
+			_i.dmgtype = dmgtype;
 			_i.sound = p_imp_amiyamag_n;
 		}
 	break;
@@ -43,13 +46,18 @@ switch(skill){
 	//高效冲击
 	case 7:
 		for(var i = 0;i < shoot_bullet;i++){
-			var _i = instance_create_depth(x+(-(shoot_bullet-1)*0.5+i)*(10-keyboard_check(vk_shift)*5),y-10+abs(i-(shoot_bullet-1)/2)*8,global.bullet_depth,objPlayerBullet);
+			var _i = instance_create_depth(x+(-bullets*0.5+i)*(10-slowdown*5),y-10+abs(i-bullets/2)*8,global.bullet_depth,objPlayerBullet);
 			_i.sprite_index = sprBBagpipe;
 			_i.vspeed = -7;
 			_i.dmg = atk*2*skill_dmgscale;
-			_i.dmgtype = damage_type.Physic;
+			_i.dmgtype = dmgtype;
 		}
-		_s = 0.25*room_speed/2;
+		if shoot_combo = 0{
+			shoot_combo = 1;
+			var _i = instance_create_depth(x,y,depth+1,objAnimeBuff);
+			_i.sprite_index = sprESteam;
+		}
+		audio_play_sound(p_imp_gunlance_h,1,false);
 	break;
 	//剑雨
 	case 8:
@@ -64,18 +72,18 @@ switch(skill){
 			var _i = instance_create_depth(x,y-10,global.bullet_depth,objPlayerBulletP);
 			_i.sprite_index = sprBSaga;
 			_i.speed = 7.5;
-			_i.direction = 90-45+i/(shoot_bullet-1)*90
+			_i.direction = 90-45+i/bullets*90
 			_i.image_angle = _i.direction-90;
 			_i.friction = 0.1;
 			_i.lifetime = 90;
 			_i.dmg = atk*skill_dmgscale;
-			_i.dmgtype = damage_type.Physic;
+			_i.dmgtype = dmgtype;
 		}
 	break;
 	//红移
 	case 11:
 		for(var i = 0;i < shoot_bullet;i++){
-			var _i = instance_create_depth(x+(-0.5+i/(shoot_bullet-1))*6,y-10,global.bullet_depth,objPlayerBullet);
+			var _i = instance_create_depth(x+(-0.5+i/bullets)*6,y-10,global.bullet_depth,objPlayerBullet);
 			_i.sprite_index = sprBCutter;
 			_i.speed = 6;
 			_i.direction = 90;
@@ -97,7 +105,7 @@ switch(skill){
 		for(var i = 0;i < shoot_bullet;i++){
 			var _i = instance_create_depth(x,y-10,global.bullet_depth,objPlayerMissle);
 			_i.sprite_index = sprBLappland;
-			_i.direction = 90-(shoot_bullet-1)*5+i*10;
+			_i.direction = 90-bullets*5+i*10;
 			_i.speed = 4;
 			_i.dmg = atk*skill_dmgscale;
 			_i.dmgtype = damage_type.Art;
@@ -111,7 +119,7 @@ switch(skill){
 			_i.auto_angle = true;
 			_i.shadow = objEShadowScale;
 			_i.boom = false;
-			_i.image_blend = make_color_hsv(0,0,55+(1-i/(shoot_bullet-1))*200)
+			_i.image_blend = make_color_hsv(0,0,55+(1-i/bullets)*200)
 			//audio_play_sound(p_atk_silver_n,1,false);
 		}
 		ds_list_destroy(enemy_list)
@@ -155,11 +163,74 @@ switch(skill){
 	//反击电弧
 	case 19:
 		var _i = instance_create_depth(x,y-10,global.bullet_depth,objBLiskarm);
-		_i.dmg = atk;
+		_i.dmg = atk*skill_dmgscale;
 		_i.dmgtype = damage_type.Art;
 		if get_chance() <= 25*global.luck_rate{
 			_i.daze_addon = shoot_bullet*room_speed/2;
 		}
+	break;
+	//凝武
+	case 23:
+		var _i = instance_create_depth(x,y-10,global.bullet_depth,objPlayerBulletS);
+		_i.sprite_index = sprBShiraYuki;
+		_i.vspeed = -5;
+		_i.friction_meet = 0.1;
+		_i.image_xscale = 0.5;
+		_i.image_yscale = 0.5;
+		_i.aspd = 10;
+		_i.dmg = atk*skill_dmgscale/room_speed;
+		_i.dmgtype = damage_type.Art;
+		_i.ctrl_addon = room_speed/2;
+		_i.alarm[0] = 80*shoot_bullet/4;
+	break;
+	//毒液散射
+	case 24:
+		for(var i = 0;i < shoot_bullet;i++){
+			var _i = instance_create_depth(x+(-bullets*0.5+i)*min(6-slowdown*3,(50-slowdown*25)/bullets),y-10,global.bullet_depth,objPlayerBullet);
+			_i.sprite_index = sprBBluePoison;
+			_i.speed = 5-abs(i-bullets/2)*min(0.5,3/bullets);
+			_i.direction = 90-sqr((i/bullets*2-1))*sign(i-bullets/2)*10;
+			_i.image_angle = _i.direction-90;
+			_i.dmg = atk*skill_dmgscale;
+			_i.dmgtype = dmgtype;
+			_i.sound = p_imp_arrow_n;
+		}
+		audio_play_sound(p_atk_arrow_n,1,false);
+	break;
+	//过载模式
+	case 25:
+		for(var i = 0;i < shoot_bullet;i++){
+			var _i = instance_create_depth(x+(-bullets*0.5+i)*min(10-slowdown*5,(50-slowdown*25)/bullets),y-10+abs(i-bullets/2)*5,global.bullet_depth,objPlayerBullet);
+			_i.sprite_index = sprBExusiai;
+			_i.vspeed = -8;
+			_i.dmg = atk*1.5*skill_dmgscale;
+			_i.dmgtype = dmgtype;
+			_i.sound = p_imp_amiyamag_n;
+		}
+		if shoot_combo = 0{
+			shoot_combo = 4;
+			audio_play_sound(p_atk_smg_h,1,false);
+		}
+	break;
+	//D12
+	case 26:
+		var _i = instance_create_depth(x,y,depth+1,objEW);
+		_i.dmg = atk*3.1*skill_dmgscale;
+		_i.dmgtype = dmgtype;
+		_i.daze_addon = 5*room_speed/2;
+	break;
+	//战术的终结
+	case 27:
+		var _i = instance_create_depth(x,y-10,global.bullet_depth,objPlayerBullet);
+		_i.sprite_index = sprBSchwarz;
+		_i.vspeed = -5;
+		_i.dmg = atk*shoot_bullet*skill_dmgscale;
+		_i.dmgtype = damage_type.Physic;
+		_i.sound = p_imp_militaryxbow_s;
+		
+		_i = instance_create_depth(x,y,depth+1,objAnimeBuff);
+		_i.sprite_index = sprESteam;
+		audio_play_sound(p_atk_militaryxbow_s,1,false);
 	break;
 	//火山
 	case 33:
@@ -167,11 +238,11 @@ switch(skill){
 			var _i = instance_create_depth(x,y,global.bullet_depth,objPlayerBullet);
 			_i.sprite_index = sprBEyja;
 			_i.speed = 3;
-			_i.direction = 90+(skill_duration[skillselect] - skill_time)/shoot_cd*5+i/(shoot_bullet-1)*60;
+			_i.direction = 90+(skill_duration[skillselect] - skill_time)/shoot_cd*5+i/bullets*60;
 			_i.image_angle = _i.direction;
 			_i.dspd = (keyboard_check(vk_right)+keyboard_check(vk_left))*0.25;
 			_i.dmg = atk*skill_dmgscale;
-			_i.dmgtype = damage_type.Art;
+			_i.dmgtype = dmgtype;
 		}
 	break;
 	//反制电磁脉冲

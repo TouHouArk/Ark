@@ -85,12 +85,10 @@ switch(skill){
 	break;
 	case 24:
 		atkbuff -= skill_tag[0];
-		shootbuff -= skill_tag[1];
+		shoot_bullet -= 3;
 	break;
 	case 25:
 		dmgtype = dmgtype_o;
-		atkspd -= skill_tag[0];
-		atkbuff -= skill_tag[1];
 	break;
 	case 27:
 		dmgtype = dmgtype_o;
@@ -99,7 +97,7 @@ switch(skill){
 	break;
 	case 28:
 		atkbuff -= skill_tag[0];
-		atkspd -= 80;
+		with(objPlayerOrbitClick){skilling = false;}
 	break;
 	case 29:
 		maxhpbuff -= skill_tag[0];

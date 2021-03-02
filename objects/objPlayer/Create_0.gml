@@ -70,6 +70,8 @@ dmgtype = damage_type.Art;
 dmgtype_o = 1;
 skill_atksploop = ds_list_create();
 skill_atksploop_a = 0;
+shoot_combo = 0;
+shoot_combo_delay = 2;
 //无人机初始化
 orbit_num = 2;
 orbits = ds_list_create();

@@ -8,8 +8,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "parSkyObject",
-    "path": "objects/parSkyObject/parSkyObject.yy",
+    "name": "parPlayerSummon",
+    "path": "objects/parPlayerSummon/parPlayerSummon.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,

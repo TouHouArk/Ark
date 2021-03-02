@@ -18,5 +18,5 @@ function item_add(itemid){
 			ds_list_delete(list,pos);
 		}
 	}
-	with(objPlayer){level_refresh();orbit_refresh();}
+	with(objPlayer){level_refresh();orbit_refresh();skill_special_refresh();}
 }

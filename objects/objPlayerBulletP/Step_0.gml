@@ -1,3 +1,4 @@
+event_inherited();
 if lifetime != -1{
 	lifetime -= 1;
 	if lifetime < 30{

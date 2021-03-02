@@ -4,7 +4,8 @@ if boom{
 	image_yscale = range/32;
 	(instance_create_depth(x,y,depth+1,objBoomBuff)).maxr = range;
 }else{
-	instance_change(objPlayerBullet,false);
+	with(other){enemy_get_attacked(other.id)}
+	instance_destroy();
 }
 if sound != -1{audio_play_sound(sound,1,false)}
 alarm[0] = 1;

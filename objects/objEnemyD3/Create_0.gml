@@ -2,6 +2,7 @@ event_inherited();
 type = 0;
 spd = 1;
 dir = 270;
+maxhp = 30000+global.drone_level*20000;
 hp = 30000+global.drone_level*20000;
 atk = 660+global.drone_level*100;
 defence = 170+global.drone_level*200;
@@ -14,4 +15,7 @@ action = 0;
 xp = 200;
 daze = -1;
 stun = -1;
-ctrl = -1;
+
+xspd = 0;
+_t = 6;
+ed = false;

@@ -5,6 +5,7 @@ sound = -1;
 daze_addon = 0;
 stun_addon = 0;
 ctrl_addon = 0;
+slow_addon = 0;
 
 alarm[0] = 0;
 image_speed = 0;

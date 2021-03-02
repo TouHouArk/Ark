@@ -1,0 +1,1 @@
+speed = sign(speed)*max(abs(speed)-friction_meet,0);

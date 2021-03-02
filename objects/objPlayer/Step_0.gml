@@ -37,6 +37,10 @@ if (keyboard_check(vk_space) || autoattack) && _s <= 0 && disarm <= 0 && !global
 	}
 	_s = shoot_cd;
 	event_user(0);
+}else if shoot_combo > 0 && (shoot_cd - _s) mod 3 = 0{
+	_s = shoot_cd;
+	event_user(0);
+	shoot_combo -= 1;
 }
 
 if _s > 0{

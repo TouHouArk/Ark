@@ -1,14 +1,7 @@
 image_angle += aspd;
 if auto_found{
 	if auto_target != -1 && instance_exists(auto_target){
-		var tdr = point_direction(x,y,auto_target.x,auto_target.y)
-		if abs(tdr - direction) <= dspd || abs(tdr - direction) >= 360-dspd{
-			direction = tdr;
-		}else if tdr < direction || tdr >= direction + 180 {
-			direction -= dspd;
-		}else{
-			direction += dspd;
-		}
+		direction = rotate_until_angle_is(point_direction(x,y,auto_target.x,auto_target.y),direction,dspd)
 	}else{
 		if instance_exists(parEnemy){
 			auto_target = instance_nearest(x,y,parEnemy);

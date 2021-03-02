@@ -4,6 +4,7 @@ sound = -1;
 daze_addon = 0;
 stun_addon = 0;
 ctrl_addon = 0;
+slow_addon = 0;
 
 x_scale = choose(-1,1);
 image_speed = 0;

@@ -11,7 +11,7 @@ switch(type){
 					_i.image_angle = 180;
 				}
 				if y <= 100{
-					vspeed = spd;
+					vspeed = spd*spdbuff;
 				}else{
 					_a = 0;
 					vspeed = 0;
@@ -23,7 +23,7 @@ switch(type){
 					vspeed = -1;
 				}
 				if _a = 70{
-					vspeed = 4;
+					vspeed = 4*spdbuff;
 				}
 				if _a >= 30 && _a mod 15 = 0 && _a < 75{
 					for(var i = 0;i < 2;i++){
@@ -33,7 +33,7 @@ switch(type){
 						_i._t = 200-i*45-_aa*40;
 						_i.hspeed = 2;
 						_i._a = -30-i*45+20;
-						_i.spd = 2;
+						_i.spd = 4;
 						_i.atk = 500;
 						_i.lifetime = 800;
 						
@@ -42,7 +42,7 @@ switch(type){
 						_i._t = 200-i*45-_aa*40;
 						_i.hspeed = -2;
 						_i._a = -30-i*45+20;
-						_i.spd = 2;
+						_i.spd = 4;
 						_i.atk = 500;
 						_i.lifetime = 800;
 					}
@@ -61,44 +61,59 @@ switch(type){
 				}
 			break;
 			case 2 :
+				image_angle = point_direction(x,y,150,180)+90;
 				if _a = 10{
-					hspeed = choose(-2,2);
+					xspd = choose(-2,2);
 				}
 				if _a = 45{
-					hspeed = 0;
+					xspd = 0;
 				}
 				if _a = 50{
-					hspeed = sign(150-x)*4;
+					xspd = sign(150-x)*4;
 				}
 				if _a > 50 && _a <= 200{
-					if x <= 80 || x >= 220{
-						hspeed = -hspeed;
+					if (x <= 80 && sign(xspd) = -1) || (x >= 220 && sign(xspd) = 1){
+						xspd = -xspd;
+						for(var i = 0;i < 20;i++){
+							var _i = instance_create_depth(x,y,global.bullet_depth,objEnemyBullet);
+							_i.sprite_index = sprBD3;
+							_i.speed = 3;
+							_i.friction = 0.01;
+							_i.direction = i*18;
+							_i.image_angle = _i.direction-90;
+							_i.dmg = atk;
+						}
 					}
-					if _a mod 6 = 0{
-						for(var i = 0;i < 3;i++){
-							var _i = instance_create_depth(x,y+30-i*5,global.bullet_depth,objEnemyBullet);
+					if _a mod _t = 0{
+						var bullets = 3+sign(_a mod (_t*2))
+						for(var i = 0;i < bullets;i++){
+							var _i = instance_create_depth(x+lengthdir_x(30,image_angle-90),y+lengthdir_y(30,image_angle-90),global.bullet_depth,objEnemyBullet);
 							_i.sprite_index = sprBD4;
-							_i.speed = 4;
-							_i.direction = 270;
-							_i.dmg = round(atk/3);
-							_i.image_angle = 180;
+							_i.speed = 2;
+							_i.direction = image_angle-90-18*(i-(bullets-1)/2);
+							_i.image_angle = _i.direction-90;
+							_i.dmg = atk;
 						}
 					}
 				}
 				if _a >= 200{
-					hspeed = sign(150-x);
+					xspd = sign(150-x);
 					if abs(x-150) < 1{
 						x = 150;
+						xspd = 0;
+						hspeed = 0;
 						_a = 0;
 						action = 0;
+						image_angle = 0;
 					}
 				}
+				hspeed = xspd*spdbuff;
 			break;
 		}
 	break;
 	case 10 :
 		if y <= 100{
-			vspeed = spd;
+			vspeed = spd*spdbuff;
 		}else{
 			vspeed = 0;
 			_a += 1;

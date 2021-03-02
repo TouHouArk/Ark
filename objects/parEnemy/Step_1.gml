@@ -7,6 +7,7 @@ if !st{
 	var ad = 1/max(0.2,global.drone_atkspdbuff);
 	_t = round(_t*ad);
 	lifetime = round(lifetime*ad);
+	maxhp = hp;
 	if global.hard_debuff1 && elite > 0{
 		hp *= 1.6;
 		atk *= 1.3;

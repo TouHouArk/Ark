@@ -24,8 +24,9 @@ if daze <= 0{
 				direction = point_direction(x,y,tx,ty);
 			}
 			if _a >= _t{
-				ox += lengthdir_x(spd,dir);
-				oy += lengthdir_y(spd,dir);
+				var nspd = spd*min((_a-_t)/20,1);
+				ox += lengthdir_x(nspd*spdbuff,dir);
+				oy += lengthdir_y(nspd*spdbuff,dir);
 			}
 			if place_meeting(x,y,objPlayer){
 				lifetime = 0;

@@ -16,4 +16,6 @@ xp = 1;
 daze = 0;
 stun = 0;
 ctrl = 0;
+slow = 0;
+inv = 0;
 anti_search = false;

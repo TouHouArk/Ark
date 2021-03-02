@@ -33,8 +33,9 @@ switch(skill){
 		atkbuff += skill_tag[0];
 	break;
 	case 7:
+		shoot_combo_delay = 5;
 	break;
-	case 8: //WIP
+	case 8:
 		global.money += 2;
 		cast_instant();
 		if global.fun{
@@ -132,31 +133,30 @@ switch(skill){
 	case 23:
 	break;
 	case 24:
-		skill_tag[0] = atkbuff*2;
+		skill_tag[0] = atkbuff*0.5;
 		atkbuff += skill_tag[0];
-		skill_tag[1] = shootbuff*0.3;
-		shootbuff += skill_tag[1];
+		shoot_bullet += 3;
 	break;
 	case 25:
 		dmgtype = damage_type.Physic;
-		skill_tag[0] = atkspd*4;
-		atkspd += skill_tag[0];
-		skill_tag[1] = atkbuff*0.5;
-		atkbuff += skill_tag[1];
+		shoot_combo_delay = 3;
+		with(skill_effect){instance_change(objEExsuiai,true)}
 	break;
-	case 26: //WIP
+	case 26:
+		cast_instant();
 	break;
 	case 27:
 		dmgtype = damage_type.Physic;
 		skill_tag[0] = shootbuff*0.25;
 		shootbuff += skill_tag[0];
-		skill_tag[1] = atkbuff*3.5;
+		skill_tag[1] = atkbuff*2;
 		atkbuff += skill_tag[1];
+		with(skill_effect){instance_change(objESchwarz,true)}
 	break;
 	case 28:
-		skill_tag[0] = atkbuff*0.2;
+		skill_tag[0] = atkbuff*0.7;
 		atkbuff += skill_tag[0];
-		atkspd += 80;
+		with(objPlayerOrbitClick){skilling = true;}
 	break;
 	case 29:
 		skill_tag[0] = maxhpbuff*-0.7;

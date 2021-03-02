@@ -50,7 +50,7 @@ repeat(10){
 					mx = -j;
 				}
 				var _r = _l+ds_grid_width(new_map)-1;
-				if (_l < 0 || bg[# _l,y_place] = 0) && (_r > bg_w || bg[# _r,y_place] = 0){
+				if (_l < 0 || bg[# _l,y_place] = 0) && (_r >= bg_w || bg[# _r,y_place] = 0){
 					dx = min(vx+mx,6);
 					canbe_placed = true;
 					if with_way{
@@ -64,7 +64,7 @@ repeat(10){
 	if canbe_placed{
 		ds_grid_set_grid_region(bg,new_map,
 		max(0,-dx),0,
-		min(bg_w-dx-2,ds_grid_width(new_map)-1),ds_grid_height(new_map)-1,
+		min(bg_w-dx-1,ds_grid_width(new_map)-1),ds_grid_height(new_map)-1,
 		max(0,dx),y_place-ds_grid_height(new_map)+1)
 	}
 	ds_grid_clear(new_map,0);
@@ -95,9 +95,7 @@ for(var i = 0;i < bg_w;i++){
 	}
 }
 //清除已使用的ds
-if ds_exists(new_map,ds_type_map){
-	ds_map_destroy(new_map);
-}
+ds_grid_destroy(new_map);
 ds_list_destroy(has_way);
 ds_list_destroy(has_way_new);
 ds_list_destroy(has_space);

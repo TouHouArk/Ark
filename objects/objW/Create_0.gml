@@ -37,3 +37,8 @@ xp = 800;
 spell_name[0] = "爆符「近身探测爆炸物」"
 spell_name[1] = "障符「视线遮挡用烟雾弹」"
 spell_name[2] = "「乱炸无歇」"
+
+daze = -1;
+stun = -1;
+ctrl = -1;
+slow = -1;

@@ -1,0 +1,9 @@
+action = 0;
+follow = -1;
+_a = 0;
+combo = 0;
+(instance_create_depth(x,y,-100,objAnimeBuff)).sprite_index = sprESparkle;
+x = home_x + lengthdir_x(dis,round_ang);
+y = home_y + lengthdir_y(dis,round_ang);
+(instance_create_depth(x,y,-100,objAnimeBuff)).sprite_index = sprESparkle;
+skill_bullet_alp = 0;

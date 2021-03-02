@@ -32,20 +32,8 @@ function orbit_refresh(){
 				ds_list_add(orbits,instance_create_depth(x,y,depth-10,objPlayerOrbit));
 			}
 		}
-		//更新无人机数据
-		with(objPlayerOrbit){
-			//_d = 0;
-			level = other.level;
-			maxhpbuff = other.orbit_maxhpbuff;
-			atkbuff = other.orbit_atkbuff;
-			defencebuff = other.orbit_defencebuff;
-			resistbuff = other.orbit_resistbuff;
-			atkspd = other.orbit_atkspd;
-			shoot_bullet = other.orbit_shoot_bullet;
-			shootbuff = other.orbit_shootbuff;
-			range = other.orbit_range;
-			level_refresh();
-		}
+		//更新无人机倍率数据
+		orbit_refresh_buff();
 		//设置无人机位置
 		if orbit_num > 1{
 			for(var i = 0;i < orbit_num;i++){

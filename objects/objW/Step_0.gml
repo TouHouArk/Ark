@@ -21,6 +21,8 @@ if !ast{
 			event_user(spell+10);
 		}
 		if !last_spell && hp > 1 && hp <= maxhp/2 && !oa_st && !spelling{
+			hp = maxhp/2;
+			change_bullet_to_point();
 			instance_create_depth(0,0,-200,objOA);
 			objOA.text = spell_name[spell];
 			objOA.target = id;
