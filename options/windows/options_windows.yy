@@ -1,7 +1,7 @@
 {
-  "option_windows_display_name": "明日方舟同人游戏 - 东方计划(确信",
+  "option_windows_display_name": "明日方舟同人游戏 - CNO.101 寂静荣誉方舟骑士(迫真",
   "option_windows_executable_name": "${project_name}.exe",
-  "option_windows_version": "0.0.0.3",
+  "option_windows_version": "0.0.0.4",
   "option_windows_company_info": "部分素材来源于鹰角网络",
   "option_windows_product_info": "剩下的都是咱们画的",
   "option_windows_copyright_info": "同人游戏哪有copyright",

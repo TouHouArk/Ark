@@ -2,10 +2,10 @@ dmg = 100;
 high = 20;
 dmgtype = damage_type.Physic;
 sound = -1;
-daze_addon = 0;
-stun_addon = 0;
-ctrl_addon = 0;
-slow_addon = 0;
+bullet_addon_init();
+
+
+
 
 alarm[0] = 0;
 image_speed = 0;

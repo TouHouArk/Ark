@@ -14,6 +14,7 @@ if lifetime != 0 && in_room(x,y){
 	//objPlayer.xp += xp*global.exp_rate;
 	if elite >= 1{
 		global.money += global.elite_money;
+		with(parEnemy){instance_destroy();}
 		change_bullet_to_point();
 	}
 }

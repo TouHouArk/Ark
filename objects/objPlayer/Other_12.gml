@@ -159,11 +159,9 @@ switch(skill){
 		with(objPlayerOrbitClick){skilling = true;}
 	break;
 	case 29:
-		skill_tag[0] = maxhpbuff*-0.7;
-		maxhpbuff += skill_tag[0];
-		skill_tag[1] = atkbuff*0.8;
-		atkbuff += skill_tag[1];
-		atkspd += 100;
+		skill_tag[0] = atkbuff*1.2;
+		atkbuff += skill_tag[0];
+		instance_create_depth(x,y,depth+1,objBTomimi);
 	break;
 	case 30:
 		disarm = skill_duration[skillselect]*room_speed/2;

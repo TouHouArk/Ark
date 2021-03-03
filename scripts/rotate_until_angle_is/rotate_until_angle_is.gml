@@ -1,5 +1,5 @@
 function rotate_until_angle_is(target_angle,now_angle,rotate_speed){
-	target_angle = angle_force_in_round(target_angle);
+	/*target_angle = angle_force_in_round(target_angle);
 	now_angle = angle_force_in_round(now_angle);
 	var rt = now_angle;
 	var d = target_angle - now_angle;
@@ -14,7 +14,9 @@ function rotate_until_angle_is(target_angle,now_angle,rotate_speed){
 		}else{
 			rt -= rotate_speed;
 		}
-	}
-	
+	}*/
+	var rt = now_angle;
+	var da = angle_difference(target_angle,now_angle);
+	rt += sign(da)*min(rotate_speed,abs(da));
 	return angle_force_in_round(rt);
 }

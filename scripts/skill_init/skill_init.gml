@@ -262,12 +262,12 @@ function skill_init(){
 	global.skill_charge[28] = 1;
 	global.skill_sound[28] = b_char_atkboost;
 	global.skill_name[29] = "嘉维尔保护方案";
-	global.skill_desc[29] = "攻击变为近战,攻击力<skill>+120%</>,每次攻击随机触发下列效果之一: 目标晕眩<skill>1.6</>秒;当次攻击力提升至<skill>220%</>;当次攻击造成爆炸";
-	global.skill_spstart[29] = 20;
-	global.skill_spneed[29] = 30;
-	global.skill_duration[29] = 30;
+	global.skill_desc[29] = "攻击变为<skill>1x</>近战,攻击力<skill>+120%</>,每次攻击随机触发:目标晕眩<skill>1x</>秒或当次攻击力提升至<skill>200%</><br><ps>持续时间无限,可手动关闭</>";
+	global.skill_spstart[29] = 0;
+	global.skill_spneed[29] = 5;
+	global.skill_duration[29] = -1;
 	global.skill_sptype[29] = sp_type.Auto;
-	global.skill_casttype[29] = cast_type.Cast;
+	global.skill_casttype[29] = cast_type.Switch;
 	global.skill_charge[29] = 1;
 	global.skill_sound[29] = b_char_atkboost;
 	global.skill_name[30] = "荒时之锁";

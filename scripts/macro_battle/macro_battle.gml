@@ -19,6 +19,7 @@ function macro_battle(){
 		AutoWhenRespawn,
 		AutoWhenDead,
 		AutoWhenHPLow,
+		Switch,
 		None
 	}
 }

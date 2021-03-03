@@ -46,10 +46,6 @@ if _a >= 0 && _a <= 1200{
 			_i.lifetime = 1200;
 		}
 	}
-	if _a >= 900 && (_a-60) mod 120 = 0{
-		(instance_create_depth(150,-20,0,objEnemyD7)).dir = -30;
-		(instance_create_depth(150,-20,0,objEnemyD7)).dir = 210;
-	}
 }else if _a >= 1200 && _a < 2800{
 	if _a mod 120 = 0{
 		var _i = instance_create_depth(30,180,0,objEnemyD5);
@@ -93,7 +89,7 @@ if _a >= 0 && _a <= 1200{
 		instance_create_depth(150,-50,0,objEnemyD3);
 	}
 	
-	/*if  _a mod 200 = 0{
+	if  _a mod 200 = 0{
 		var _i = instance_create_depth(270,200-floor(_a/200)*40,0,objEnemyD4);
 		_i.dir = 225;
 		_i.lifetime = 400;
@@ -101,21 +97,11 @@ if _a >= 0 && _a <= 1200{
 		_i = instance_create_depth(30,200-floor(_a/200)*40,0,objEnemyD4);
 		_i.dir = -45;
 		_i.lifetime = 400;
-	}*/
+	}
 	if _a mod 400 = 0{
 		var _i = instance_create_depth(150,-50,0,objEnemyD5);
 		_i._t = 360;
 		_i.lifetime = 800;
-	}
-	if _a mod 600 = 60{
-		var _i = instance_create_depth(150,-20,0,objEnemyD7);
-		_i.spd = 1.5;
-		_i.dir = -20;
-		_i.lifetime = 1600;
-		_i = instance_create_depth(150,-20,0,objEnemyD7);
-		_i.spd = 1.5;
-		_i.dir = 200;
-		_i.lifetime = 1600;
 	}
 	
 	if _a = 4000{

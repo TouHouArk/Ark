@@ -100,9 +100,9 @@ switch(skill){
 		with(objPlayerOrbitClick){skilling = false;}
 	break;
 	case 29:
-		maxhpbuff -= skill_tag[0];
-		atkbuff -= skill_tag[1];
-		atkspd -= 100;
+		atkbuff -= skill_tag[0];
+		dmgtype = dmgtype_o;
+		with(objBTomimi){ed = true;}
 	break;
 	case 31:
 		shootbuff -= skill_tag[0];

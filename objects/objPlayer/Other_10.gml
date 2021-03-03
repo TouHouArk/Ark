@@ -232,6 +232,26 @@ switch(skill){
 		_i.sprite_index = sprESteam;
 		audio_play_sound(p_atk_militaryxbow_s,1,false);
 	break;
+	//嘉维尔保护方案
+	case 29:
+		if instance_exists(objBTomimi){
+			with(objBTomimi){
+				atking = true;
+				dmgtype = other.dmgtype;
+				time = other.shoot_cd;
+				dmg = other.atk*other.shoot_bullet;
+				daze_addon = 0;
+				if choose(0,1){
+					daze_addon = other.shoot_bullet*room_speed/2;
+				}else{
+					dmg *= 2;
+				}
+			}
+			audio_play_sound(p_atk_magwheel_h,1,false);
+		}else{
+			_s = 0;
+		}
+	break;
 	//火山
 	case 33:
 		for(var i = 0;i < shoot_bullet*6;i++){

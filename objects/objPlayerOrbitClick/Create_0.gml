@@ -54,9 +54,9 @@ dmg = 0;
 dmgtype = damage_type.Art
 
 daze_addon = 60;
-stun_addon = 0;
-ctrl_addon = 0;
-slow_addon = 0;
+
+
+
 
 sound = -1;
 

@@ -24,7 +24,7 @@ if skill_sp[skillselect] = skill_spneed[skillselect] || skill_charged[skillselec
 	if global.hard_debuff2 && inv = 0{
 		lifepoint = max(1,lifepoint - 1);
 	}
-	if skill_duration[skillselect] < 5{
+	if skill_duration[skillselect] >= 0 && skill_duration[skillselect] < 5{
 		with(skill_effect){instance_destroy();}
 		skill_effect = -1;
 	}

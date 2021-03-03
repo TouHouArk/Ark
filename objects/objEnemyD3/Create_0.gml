@@ -16,6 +16,7 @@ xp = 200;
 daze = -1;
 stun = -1;
 
-xspd = 0;
+nspd = 0;
+td = 0;
 _t = 6;
 ed = false;

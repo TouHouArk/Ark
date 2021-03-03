@@ -11,7 +11,7 @@ if daze <= 0{
 		break;
 		case 10 :
 			_a += 1;
-			if _a = 20{
+			if _a <= 20{
 				ox = x;
 				oy = y;
 			}

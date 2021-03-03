@@ -113,7 +113,10 @@ if hp <= 0{
 		
 		if keyboard_check_pressed(ord("S")){
 			skillselect = (skillselect + 1) mod 3;
-		}else if ((keyboard_check_pressed(ord("X")) && skill_casttype[skillselect] = cast_type.Cast) || skill_casttype[skillselect] = cast_type.Auto) && !disarm{
+		}else 
+		if ((keyboard_check_pressed(ord("X")) && 
+		(skill_casttype[skillselect] = cast_type.Cast || skill_casttype[skillselect] = cast_type.Switch)) || 
+		skill_casttype[skillselect] = cast_type.Auto) && !disarm{
 			event_user(1);
 		}
 	}else if skill_duration[skillselect] != -1{
@@ -121,6 +124,8 @@ if hp <= 0{
 		if skill_time <= 0{
 			event_user(3);
 		}
+	}else if skill_casttype[skillselect] = cast_type.Switch && keyboard_check_pressed(ord("X")){
+		event_user(3);
 	}
 	
 	if y <= room_height*0.3{

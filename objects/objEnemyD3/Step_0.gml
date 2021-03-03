@@ -15,65 +15,73 @@ switch(type){
 				}else{
 					_a = 0;
 					vspeed = 0;
-					action = choose(1,2);
+					action = choose(1,2,3);
 				}
 			break;
 			case 1 :
 				if _a = 60{
-					vspeed = -1;
+					nspd = -1;
 				}
-				if _a = 70{
-					vspeed = 4*spdbuff;
+				if _a >= 70{
+					nspd = -1+min(5,(_a-70)/4);
+					if (_a - 70) mod _t = 0 && y <= 250{
+						bullets = 5+sign((_a - 70) mod (_t*2))
+						for(var i = 0;i < bullets;i++){
+							var _i = instance_create_depth(x,y,global.bullet_depth,objEnemyBullet);
+							_i.sprite_index = sprBD3;
+							_i.hspeed = -(bullets-1)*0.25+i*0.5;
+							_i.vspeed = -1;
+							_i.gravity = 0.02;
+							_i.dmg = atk;
+						}
+					}
 				}
 				if _a >= 30 && _a mod 15 = 0 && _a < 75{
+					var _aa = floor(_a/15-2)
 					for(var i = 0;i < 2;i++){
-						var _aa = floor(_a/15-2)
 						var _i = instance_create_depth(30-i*50,80-i*20+_aa*80,depth-10,objEnemyD1);
 						_i.type = 10;
-						_i._t = 200-i*45-_aa*40;
+						_i._t = 250-i*45-_aa*60;
 						_i.hspeed = 2;
 						_i._a = -30-i*45+20;
 						_i.spd = 4;
 						_i.atk = 500;
 						_i.lifetime = 800;
+						_i.xp = 1;
 						
 						_i = instance_create_depth(270+i*50,80-i*20+_aa*80,depth-10,objEnemyD1);
 						_i.type = 10;
-						_i._t = 200-i*45-_aa*40;
+						_i._t = 250-i*45-_aa*60;
 						_i.hspeed = -2;
 						_i._a = -30-i*45+20;
 						_i.spd = 4;
 						_i.atk = 500;
 						_i.lifetime = 800;
+						_i.xp = 1;
 					}
 				}
-				/*if _a >= 70 && _a mod 15 = 10 && y <= 400{
-					var _i = instance_create_depth(x,y,depth-10,objEnemyD1);
-					_i.type = 10;
-					_i._t = 240;
-					_i.spd = 2;
-					_i.atk = 500;
-				}*/
 				if _a >= 70 && y >= 450{
 					action = 0;
 					_a = 0;
-					vspeed = 0;
+					nspd = 0;
 				}
+				vspeed = nspd*spdbuff;
+				hspeed = 0;
 			break;
 			case 2 :
 				image_angle = point_direction(x,y,150,180)+90;
 				if _a = 10{
-					xspd = choose(-2,2);
+					nspd = choose(-2,2);
 				}
 				if _a = 45{
-					xspd = 0;
+					nspd = 0;
 				}
 				if _a = 50{
-					xspd = sign(150-x)*4;
+					nspd = sign(150-x)*4;
 				}
 				if _a > 50 && _a <= 200{
-					if (x <= 80 && sign(xspd) = -1) || (x >= 220 && sign(xspd) = 1){
-						xspd = -xspd;
+					if (x <= 80 && sign(nspd) = -1) || (x >= 220 && sign(nspd) = 1){
+						nspd = -nspd;
 						for(var i = 0;i < 20;i++){
 							var _i = instance_create_depth(x,y,global.bullet_depth,objEnemyBullet);
 							_i.sprite_index = sprBD3;
@@ -97,17 +105,70 @@ switch(type){
 					}
 				}
 				if _a >= 200{
-					xspd = sign(150-x);
+					nspd = sign(150-x);
 					if abs(x-150) < 1{
 						x = 150;
-						xspd = 0;
+						nspd = 0;
 						hspeed = 0;
 						_a = 0;
 						action = 0;
 						image_angle = 0;
 					}
 				}
-				hspeed = xspd*spdbuff;
+				hspeed = nspd*spdbuff;
+				vspeed = 0;
+			break;
+			case 3 :
+				if _a = 1{
+					td = choose(-1,1);
+				}
+				if _a >= 0 && _a <= 20{
+					image_angle = td*(_a/20)*30
+				}
+				if _a >= 40 && _a <= 60{
+					image_angle = td*(1 - (_a-40)/10)*30
+				}
+				if _a >= 80 && _a <= 100{
+					image_angle = td*(-0.5 + (_a-80)/20*1.5)*60
+				}
+				if _a >= 120 && _a <= 140{
+					image_angle = td*(1 - (_a-120)/10)*60
+				}
+				if _a >= 160 && _a <= 180{
+					image_angle = td*(-2 + (_a-160)/10)*30
+				}
+				if _a = 180{
+					image_angle = 0;
+				}
+				if _a mod 40 = 20 && _a < 180{
+					var skip = 10+irandom(15);
+					var anti = (1-sign(image_angle))/2;
+					for(var i = 0;i <= 40;i++){
+						if i = skip - 4 {
+							i = skip + 4;
+						}
+						var _i = instance_create_depth(x+lengthdir_x(30,image_angle-90),y+lengthdir_y(30,image_angle-90),global.bullet_depth,objEnemyBulletJump);
+						_i.sprite_index = sprBD4;
+						_i.speed = i*0.8;
+						_i.friction = 0.05*_i.speed;
+						_i.direction = image_angle-90;
+						_i.image_angle = image_angle+90-20+220*anti;
+						_i.dmg = atk;
+						_i.jump_times = 1;
+						_i.jump_speed[0] = 3/16+i/20;
+						_i.jump_direction[0] = -90+180*anti;
+						_i.jump_dspd[0] = -0.5+1*anti;
+						_i.alarm[0] = 60;
+						_i.lifetime = 360+abs(image_angle);
+					}
+				}
+				if _a = 240{
+					_a = 0;
+					action = 0;
+					nspd = 0;
+				}
+				hspeed = 0;
+				vspeed = 0;
 			break;
 		}
 	break;

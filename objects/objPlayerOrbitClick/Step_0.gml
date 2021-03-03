@@ -38,7 +38,7 @@ switch(action){
 		round_ang = (round_ang + dspd + 360) mod 360;
 		if skilling && instance_exists(follow){
 			if _s = 0{
-				dmg = atk*(0.2+combo*0.15)*shoot_bullet;
+				dmg = atk*(0.2+combo*0.15)*1.7*shoot_bullet;
 				if instance_exists(objPlayer){
 					daze_addon = choose(60*objPlayer.shoot_bullet,0);
 				}else{

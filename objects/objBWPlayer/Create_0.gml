@@ -10,7 +10,6 @@ dmg = 0;
 dmgtype = damage_type.Physic;
 range = 48;
 
-daze_addon = 0;
-stun_addon = 0;
-ctrl_addon = 0;
-slow_addon = 0;
+bullet_addon_init();
+
+
