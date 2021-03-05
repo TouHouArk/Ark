@@ -118,6 +118,7 @@ switch(skill){
 			}
 			_i.auto_angle = true;
 			_i.shadow = objEShadowScale;
+			_i.mute_addon = 6*room_speed/2;
 			_i.boom = false;
 			_i.image_blend = make_color_hsv(0,0,55+(1-i/bullets)*200)
 			//audio_play_sound(p_atk_silver_n,1,false);
@@ -177,11 +178,12 @@ switch(skill){
 		_i.friction_meet = 0.1;
 		_i.image_xscale = 0.5;
 		_i.image_yscale = 0.5;
-		_i.aspd = 10;
-		_i.dmg = atk*skill_dmgscale/room_speed;
+		_i.aspd = 20;
+		_i.dmg = atk*skill_dmgscale/(room_speed/2);
 		_i.dmgtype = damage_type.Art;
-		_i.ctrl_addon = room_speed/2;
+		_i.slow_addon = room_speed/2;
 		_i.alarm[0] = 80*shoot_bullet/4;
+		audio_play_sound(p_atk_throw_n,1,false);
 	break;
 	//毒液散射
 	case 24:
@@ -252,18 +254,68 @@ switch(skill){
 			_s = 0;
 		}
 	break;
+	//荒时之锁
+	case 30:
+		var _i = instance_create_depth(x,y,depth+1,objBMostima);
+		_i.dmg = atk*2*skill_dmgscale;
+	break;
+	//炎爆
+	case 31:
+		var _i = instance_create_depth(x,y,depth+1,objBIfrit);
+		_i.dmg = atk*2.5*skill_dmgscale;
+		_i.dmgtype = dmgtype;
+	break;
+	//很热的刀
+	case 32:
+		for(var i = 0;i < shoot_bullet;i++){
+			var _i = instance_create_depth(x+(-bullets*0.5+i)*min(6-slowdown*3,(48-slowdown*24)/bullets),y-6+abs(i-bullets/2)*3,global.bullet_depth,objBCeobe);
+			_i.vspeed = -10;
+			_i.dmg = atk*skill_dmgscale;
+			_i.dmgtype = dmgtype;
+		}
+		audio_play_sound(p_atk_firedagger_s,1,false);
+	break;
 	//火山
 	case 33:
 		for(var i = 0;i < shoot_bullet*6;i++){
 			var _i = instance_create_depth(x,y,global.bullet_depth,objPlayerBullet);
 			_i.sprite_index = sprBEyja;
 			_i.speed = 3;
-			_i.direction = 90+(skill_duration[skillselect] - skill_time)/shoot_cd*5+i/bullets*60;
+			_i.direction = 90+(skill_duration[skillselect] - skill_time)/shoot_cd*10+i/bullets*60;
 			_i.image_angle = _i.direction;
-			_i.dspd = (keyboard_check(vk_right)+keyboard_check(vk_left))*0.25;
 			_i.dmg = atk*skill_dmgscale;
 			_i.dmgtype = dmgtype;
+			_i.sound = p_imp_firemag_n;
 		}
+	break;
+	//孢子扩散
+	case 34:
+		var _i = instance_create_depth(x,y-10,global.bullet_depth,objBPodenco);
+		_i.vspeed = -6;
+		_i.friction = 0.1;
+		_i.alarm[0] = 120;
+		_i.dmg = atk*0.8*skill_dmgscale;
+		_i.dmgtype = dmgtype;
+	break;
+	//爆破回收
+	case 35:
+		with(objPlayerOrbit){
+			var _i = instance_create_depth(x,y,depth,objPlayerMissle);
+			_i.sprite_index = sprite_index;
+			_i.image_index = image_index;
+			_i.speed = 10;
+			_i.direction = 90;
+			_i.range = 75;
+			_i.dmg = other.atk*6*other.skill_dmgscale;
+			_i.dmgtype = damage_type.Art;
+			_i.daze_addon = 2*room_speed/2;
+			_i.dspd = 20;
+			_i.auto_found = true;
+			ed = true;
+			instance_destroy();
+		}
+		audio_play_sound(p_skill_robotexplo,1,false);
+		orbit_num_now = 0;
 	break;
 	//反制电磁脉冲
 	case 37:
@@ -284,5 +336,29 @@ switch(skill){
 		_i.scale2_to = 2;
 		_i.image_angle = irandom(3)*90;
 		//audio_play_sound(p_atk_silver_n,1,false);
+	break;
+	//秘杖·反重力模式
+	case 39:
+		var enemy_list = ds_list_create();
+		instance_find_list(x,y,parEnemy,enemy_list);
+		var sd = 90;
+		if instance_exists(objEAngelina){
+			sd = 90+objEAngelina.ang;
+		}
+		var sx = x+lengthdir_x(50,sd);
+		var sy = y+lengthdir_y(50,sd);
+		for(var i = 0;i < min(shoot_bullet*5,ds_list_size(enemy_list));i++){
+			var _i = instance_create_depth(sx,sy,global.bullet_depth,objPlayerBullet);
+			_i.sprite_index = sprBAngelina;
+			_i.speed = 5;
+			_i.direction = point_direction(sx,sy,enemy_list[| i].x,enemy_list[| i].y);
+			_i.image_angle = _i.direction - 90;
+			_i.dmg = atk*skill_dmgscale;
+			_i.ctrl_addon = 3*room_speed/2;
+			_i.dmgtype = dmgtype;
+			_i.sound = p_imp_aglinamag_f;
+		}
+		audio_play_sound(p_atk_aglinamag_n,1,false);
+		ds_list_destroy(enemy_list);
 	break;
 }

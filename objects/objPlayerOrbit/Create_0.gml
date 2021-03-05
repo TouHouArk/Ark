@@ -9,6 +9,7 @@ tgdy = 0;
 spd = 2;
 _d = 0;
 _s = 0;
+ed = false;
 high = 20;
 
 shoot_bullet = 1;
@@ -38,8 +39,10 @@ hp = 2000;
 atk = 593;
 defence = 200;
 resist = 0;
+sound = p_imp_uavvolley_n;
 level_refresh();
 
 if objSystem.fade <= 0{
 	audio_play_sound(b_char_tokenset,1,false);
+	image_alpha = 0;
 }

@@ -6,3 +6,7 @@ ds_list_destroy(global.items_gacha_sr);
 ds_list_destroy(global.items_gacha_r);
 ds_list_destroy(global.items_gacha_n);
 ds_list_destroy(global.items_carry);
+
+if shadow_sf != -1{
+	surface_free(shader_sf);
+}

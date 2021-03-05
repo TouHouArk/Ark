@@ -8,4 +8,4 @@ if boom{
 	instance_destroy();
 }
 if sound != -1{audio_play_sound(sound,1,false)}
-alarm[0] = 1;
+alarm[0] = 2;

@@ -24,11 +24,12 @@ if !ast{
 			hp = maxhp/2;
 			change_bullet_to_point();
 			instance_create_depth(0,0,-200,objOA);
+			inv = true;
 			objOA.text = spell_name[spell];
 			objOA.target = id;
 			spelling = true;
 		}
-	}else{
+	}else if !spelling{
 		hp = min(round(hp+maxhp/180),maxhp);
 		if hp = maxhp{
 			inv = false;

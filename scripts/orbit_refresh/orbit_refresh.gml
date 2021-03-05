@@ -1,7 +1,8 @@
 function orbit_refresh(){
-	if orbit_num >= 1{
+	var nums = min(orbit_num,orbit_num_now);
+	if nums >= 1{
 		//检测存在的无人机是否比拥有无人机多
-		if instance_number(objPlayerOrbit) > orbit_num{
+		if instance_number(objPlayerOrbit) > nums{
 			with(objPlayerOrbit){
 				if ds_list_find_index(other.orbits,id) = -1{
 					instance_destroy();
@@ -9,7 +10,7 @@ function orbit_refresh(){
 			}
 		}
 		//如果还是多就随机删除
-		while(instance_number(objPlayerOrbit) > orbit_num){
+		while(instance_number(objPlayerOrbit) > nums){
 			var des = irandom(ds_list_size(orbits)-1);
 			var ins = ds_list_find_value(orbits,des);
 			if instance_exists(ins) && ins > 0{
@@ -25,7 +26,7 @@ function orbit_refresh(){
 			}
 		}
 		//创建缺少部分的无人机
-		while(ds_list_size(orbits) < orbit_num){
+		while(ds_list_size(orbits) < nums){
 			if ds_list_size(orbits) mod 2 = 0{
 				ds_list_insert(orbits,0,instance_create_depth(x,y,depth-10,objPlayerOrbit));
 			}else{
@@ -35,9 +36,9 @@ function orbit_refresh(){
 		//更新无人机倍率数据
 		orbit_refresh_buff();
 		//设置无人机位置
-		if orbit_num > 1{
-			for(var i = 0;i < orbit_num;i++){
-				var dir = 270+(-0.5+i/(orbit_num-1))*(180+min(orbit_num*5,50));
+		if nums > 1{
+			for(var i = 0;i < nums;i++){
+				var dir = 270+(-0.5+i/(nums-1))*(180+min(nums*5,50));
 				set_orbit(i,lengthdir_x(25,dir),lengthdir_y(40,dir),lengthdir_x(10,dir),lengthdir_y(25,dir));
 			}
 		}else{

@@ -3,4 +3,5 @@ function bullet_addon_init(){
 	stun_addon = 0;
 	ctrl_addon = 0;
 	slow_addon = 0;
+	mute_addon = 0;
 }

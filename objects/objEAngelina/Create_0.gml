@@ -1,0 +1,9 @@
+image_alpha = 1;
+_a = 0;
+tang = 0;
+ang = 0;
+aspd = 1;
+col = make_color_rgb(212,72,0);
+i1 = 0;
+i2 = 0;
+high = 20;

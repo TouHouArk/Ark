@@ -9,12 +9,16 @@ if daze <= 0{
 			}
 			direction = dir;
 			if summon != -1 && instance_exists(summon){
-				if summon.r <= sr{
-					summon.r = min(summon.r+1,sr);
+				if mute > 0{
+					with(summon){instance_destroy();}
+				}else{
+					if summon.r <= sr{
+						summon.r = min(summon.r+1,sr);
+					}
+					summon.x = x;
+					summon.y = y;
 				}
-				summon.x = x;
-				summon.y = y;
-			}else{
+			}else if mute <= 0{
 				_sa -= 1;
 				if _sa <= 0{
 					summon = instance_create_depth(x,y,depth+10,objEnemyShield)
@@ -25,7 +29,7 @@ if daze <= 0{
 		break;
 		case 1:
 			_a += 1;
-			if _a mod 3 = 0{
+			if _a mod 3 = 0 && mute <= 0{
 				var _i = instance_create_depth(x+irandom_range(-40,40),y+irandom_range(-40,40),-100,objEFog);
 				_i.pow = irandom_range(30,50)/100;
 				_i.image_xscale = irandom_range(4,6)/10;

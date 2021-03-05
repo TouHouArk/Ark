@@ -104,31 +104,36 @@ switch(skill){
 		dmgtype = dmgtype_o;
 		with(objBTomimi){ed = true;}
 	break;
-	case 31:
-		shootbuff -= skill_tag[0];
-	break;
 	case 32:
 		shootbuff -= skill_tag[0];
+		atkspd -= 8;
 	break;
 	case 33:
 		atkbuff -= skill_tag[0];
 		shootbuff -= skill_tag[1];
 		autoattack = false;
 	break;
-	case 34:
-		orbit_atkbuff -= skill_tag[0];
-	break;
 	case 36:
 		orbit_atkbuff -= skill_tag[0];
+		orbit_atkspd -= 50;
 		autoregen -= 50;
+		if instance_number(objBDeepColor) <= 102{
+			for(var i = 0;i <= 12;i++){
+				var _i = instance_create_depth(x,y,depth+1,objBDeepColor);
+				_i.target = id;
+				_i.dy = 3;
+				_i.image_angle = i*68.7;
+			}
+		}
 	break;
 	case 38:
 		atkbuff -= skill_tag[0];
+		orbit_atkbuff -= skill_tag[1];
+		orbit_range -= 30;
+		orbit_num_now = 0;
 	break;
 	case 39:
 		atkbuff -= skill_tag[0];
-		orbit_atkbuff -= skill_tag[1];
-		orbit_range -= 10;
 	break;
 	case 40:
 		shootbuff -= skill_tag[0];

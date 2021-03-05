@@ -12,10 +12,16 @@ function enemy_get_attacked(other_id){
 				stun = max(stun,other_id.stun_addon);
 			}
 			if other_id.ctrl_addon > 0 && ctrl != -1{
+				if ctrl <= 0{(instance_create_depth(x,y,-100,objEEnemyCtrl)).target = id;}
 				ctrl = max(ctrl,other_id.ctrl_addon);
 			}
 			if other_id.slow_addon > 0 && slow != -1{
+				if slow <= 0{(instance_create_depth(x,y,-100,objEEnemySlow)).target = id;}
 				slow = max(slow,other_id.slow_addon);
+			}
+			if other_id.mute_addon > 0 && mute != -1{
+				if mute <= 0{(instance_create_depth(x,y,-100,objEEnemyMute)).target = id;}
+				mute = max(mute,other_id.mute_addon);
 			}
 			with(other_id){//子弹特殊相关事件
 				if sound != -1{audio_play_sound(sound,1,false)}
@@ -31,7 +37,7 @@ function enemy_get_attacked(other_id){
 					}
 				}
 				if has_skill(24){
-					var _i = instance_create_depth(x,y,other.depth-1,objEPoison);
+					var _i = instance_create_depth(x,y,other.depth-1,objAPoison);
 					_i.target = enemy;
 					_i.dmg = round(85*dmg/objPlayer.atk);
 				}

@@ -10,20 +10,20 @@ function item_get(itemid){
 		case 5 : objPlayer.shoot_bullet += 2;break;
 		case 6 : objPlayer.shoot_bullet += 3;break;
 		case 7 : 
-		case 8 : objPlayer.orbit_num += 1;break;
-		case 9 : objPlayer.orbit_num += 2;break;
+		case 8 : objPlayer.orbit_num += 1;objPlayer.orbit_num_now += 1;break;
+		case 9 : objPlayer.orbit_num += 2;objPlayer.orbit_num_now += 2;break;
 		case 10 : 
 		case 11 : 
 		case 12 : objPlayer.autoregen += 4;break;
 		case 13 : objPlayer.autoregen += 6;break;
 		case 14 : objPlayer.autoregen += 8;break;
 		case 15 : objPlayer.autoregen += 2;objPlayer.shoot_bullet += 1;break;
-		case 16 : objPlayer.autoregen += 2;objPlayer.orbit_num += 1;break;
+		case 16 : objPlayer.autoregen += 2;objPlayer.orbit_num += 1;objPlayer.orbit_num_now += 1;break;
 		case 17 : 
 		case 18 : objPlayer.autoregen += 4;objPlayer.shoot_bullet += 1;break;
-		case 19 : objPlayer.autoregen += 4;objPlayer.orbit_num += 1;break;
+		case 19 : objPlayer.autoregen += 4;objPlayer.orbit_num += 1;objPlayer.orbit_num_now += 1;break;
 		case 20 : objPlayer.autoregen += 6;objPlayer.shoot_bullet += 2;break;
-		case 21 : objPlayer.autoregen += 4;objPlayer.shoot_bullet += 1;objPlayer.orbit_num += 1;break;
+		case 21 : objPlayer.autoregen += 4;objPlayer.shoot_bullet += 1;objPlayer.orbit_num += 1;objPlayer.orbit_num_now += 1;break;
 		case 22 : global.money += 10;break;
 		case 23 : global.money += 18;break;
 		case 24 : global.money += 25;break;
@@ -173,8 +173,8 @@ function item_get(itemid){
 		case 168 : break;
 		case 169 : break;
 		case 170 : break;
-		case 171 : objPlayer.orbit_num += 2;break;
-		case 172 : objPlayer.shoot_bullet += 1;objPlayer.orbit_num += 1;break;
+		case 171 : objPlayer.orbit_num += 2;objPlayer.orbit_num_now += 2;break;
+		case 172 : objPlayer.shoot_bullet += 1;objPlayer.orbit_num += 1;objPlayer.orbit_num_now += 1;break;
 		case 173 : 
 		case 174 : objPlayer.lifepoint += 3;break;
 		case 175 : objPlayer.lifepoint += 4;break;

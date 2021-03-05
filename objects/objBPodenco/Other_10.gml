@@ -1,0 +1,10 @@
+explode = true;
+image_angle = 0;
+aspd = 0;
+type = round(image_index mod 2);
+depth = 50;
+speed = 0;
+gravity = 0;
+friction = 0;
+image_alpha = 0;
+mycol = type? col2 : col1;

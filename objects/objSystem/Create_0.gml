@@ -132,6 +132,7 @@ for(var i = 0;i < ds_list_size(global.enable_items);i++){
 }
 
 global.part_system = part_system_create();
+shadow_sf = -1;
 
 item_name_init();
 item_desc_init();

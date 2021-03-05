@@ -17,12 +17,14 @@ if skill_sp[skillselect] = skill_spneed[skillselect] || skill_charged[skillselec
 	}else{
 		skill_time = 9999;
 	}
-	if global.skill_sound[skill] != -1{
-		audio_play_sound(global.skill_sound[skill],1,false);
-	}
 	event_user(2);
-	if global.hard_debuff2 && inv = 0{
-		lifepoint = max(1,lifepoint - 1);
+	if skill != -1{
+		if global.skill_sound[skill] != -1{
+			audio_play_sound(global.skill_sound[skill],1,false);
+		}
+		if global.hard_debuff2 && inv = 0{
+			lifepoint = max(1,lifepoint - 1);
+		}
 	}
 	if skill_duration[skillselect] >= 0 && skill_duration[skillselect] < 5{
 		with(skill_effect){instance_destroy();}

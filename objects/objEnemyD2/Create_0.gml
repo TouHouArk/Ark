@@ -7,6 +7,8 @@ atk = 220+global.drone_level*110;
 defence = 50+global.drone_level*75;
 resist = 0;
 depth = -10;
-lifetime = 400
+lifetime = 600;
 _t = 120;
 xp = 10;
+
+shoot_ang = 0;

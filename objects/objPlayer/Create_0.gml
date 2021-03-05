@@ -74,6 +74,9 @@ shoot_combo = 0;
 shoot_combo_delay = 2;
 //无人机初始化
 orbit_num = 2;
+orbit_num_now = 2;
+orbit_respawn_cd = 10;
+_o = 0;
 orbits = ds_list_create();
 orbit_refresh();
 //擦弹特效定义

@@ -159,21 +159,22 @@ switch(skill){
 		with(objPlayerOrbitClick){skilling = true;}
 	break;
 	case 29:
-		skill_tag[0] = atkbuff*1.2;
+		skill_tag[0] = atkbuff*0.5;
 		atkbuff += skill_tag[0];
 		instance_create_depth(x,y,depth+1,objBTomimi);
 	break;
 	case 30:
-		disarm = skill_duration[skillselect]*room_speed/2;
-		stuck = skill_duration[skillselect]*room_speed/2;
+		cast_instant();
+		stuck = disarm;
+		_s = disarm;
 	break;
 	case 31:
-		skill_tag[0] = shootbuff*-0.8;
-		shootbuff += skill_tag[0];
+		cast_instant();
 	break;
 	case 32:
 		skill_tag[0] = shootbuff*-0.7;
 		shootbuff += skill_tag[0];
+		atkspd += 8;
 	break;
 	case 33:
 		skill_tag[0] = atkbuff*1.3;
@@ -183,14 +184,19 @@ switch(skill){
 		autoattack = true;
 	break;
 	case 34:
-		skill_tag[0] = orbit_atkbuff*1;
-		orbit_atkbuff += skill_tag[0];
+		cast_instant();
 	break;
-	case 35: //WIP
+	case 35: 
+		if min(orbit_num,orbit_num_now) <= 0{
+			cast_failed();
+		}else{
+			cast_instant();
+		}
 	break;
 	case 36:
 		skill_tag[0] = orbit_atkbuff*0.6;
 		orbit_atkbuff += skill_tag[0];
+		orbit_atkspd += 50;
 		autoregen += 50;
 	break;
 	case 37:
@@ -198,15 +204,17 @@ switch(skill){
 		event_user(0);
 	break;
 	case 38:
-		skill_tag[0] = atkbuff*2;
+		skill_tag[0] = atkbuff*1.2;
 		atkbuff += skill_tag[0];
+		skill_tag[1] = orbit_atkbuff*1.2;
+		orbit_atkbuff += skill_tag[1];
+		orbit_range += 30;
+		with(objPlayer){sound = p_imp_uavvolley_h};
 	break;
 	case 39:
-		skill_tag[0] = atkbuff*0.8;
+		skill_tag[0] = atkbuff*1.5;
 		atkbuff += skill_tag[0];
-		skill_tag[1] = orbit_atkbuff*0.8;
-		orbit_atkbuff += skill_tag[1];
-		orbit_range += 10;
+		with(skill_effect){instance_change(objEAngelina,true);depth = other.depth+1}
 	break;
 	case 40:
 		skill_tag[0] = shootbuff*-0.7;

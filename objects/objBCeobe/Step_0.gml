@@ -1,0 +1,19 @@
+var _i = instance_create_depth(x+lengthdir_x(3,image_angle+270),y+lengthdir_y(3,image_angle+270),depth,objEShadowAlpha);
+_i.sprite_index = sprECeobe1;
+_i.spd = 0.1;
+_i.image_alpha = 1;
+_i.image_angle = image_angle;
+_i.image_yscale = abs(speed)/8;
+
+_i = instance_create_depth(x,y,depth,objEShadowScale);
+_i.sprite_index = sprECeobe2;
+_i.image_speed = 0;
+_i.image_index = irandom(sprite_get_number(sprECeobe2)-1);
+_i.image_angle = irandom(3)*90;
+_i.image_blend = choose(col1,col2,col3,col4,col5);
+_i.direction = direction+180+irandom_range(-30,30);
+_i.speed = 3;
+_i.friction = 0.3;
+_i.image_alpha = 0.5;
+_i.spd = 0.1;
+_i.aspd = irandom_range(-2,2);

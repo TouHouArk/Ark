@@ -10,15 +10,15 @@ if _a >= 0 && _a <= 1800{
 			instance_create_depth(115+i*70,-20,0,objEnemyD1);
 		}
 	}
-	if _a >= 600 && _a mod 300 <= 80 && _a mod 40 = 0{
+	if _a >= 600 && _a mod 600 <= 160 && _a mod 80 = 0{
 		for(var i = 0;i < 3;i++){
-			var _i = instance_create_depth(40-i*50,250-(_a mod 300)/20*50,0,objEnemyD2);
+			var _i = instance_create_depth(20-i*32,200-(_a mod 300),0,objEnemyD2);
 			_i.dir = 0;
 		}
 	}
-	if _a >= 600 && _a mod 300 <= 80 && _a mod 40 = 20{
+	if _a >= 600 && _a mod 600 <= 160 && _a mod 80 = 40{
 		for(var i = 0;i < 3;i++){
-			var _i = instance_create_depth(260+i*50,250-(_a mod 300)/20*50,0,objEnemyD2);
+			var _i = instance_create_depth(280+i*32,200-(_a mod 300),0,objEnemyD2);
 			_i.dir = 180;
 		}
 	}
@@ -29,11 +29,11 @@ if _a >= 0 && _a <= 1800{
 	if _a mod 80 = 0{
 		var _i = instance_create_depth(20,20,0,objEnemyD1);
 		_i.dir = -45;
-		_i.image_angle = 90;
+		_i.image_angle = 45;
 		
 		_i = instance_create_depth(280,20,0,objEnemyD1);
 		_i.dir = 225;
-		_i.image_angle = 270;
+		_i.image_angle = -45;
 	}
 	if _a mod 120 = 0{
 		var _i = instance_create_depth(20,0,0,objEnemyD2);
@@ -43,15 +43,10 @@ if _a >= 0 && _a <= 1800{
 		_i.dir = 210;
 	}
 	if _a mod 240 = 0{
-		var _i = instance_create_depth(110,-20,0,objEnemyD2);
+		var _i = instance_create_depth(110+80*sign(_a mod 480),-20,0,objEnemyD2);
 		_i.spd = 1;
 		_i.type = 1;
-		_i._t = 10;
-		
-		_i = instance_create_depth(190,-20,0,objEnemyD2);
-		_i.spd = 1;
-		_i.type = 1;
-		_i._t = 10;
+		_i._t = 20;
 	}
 	if _a = 2200{
 		if get_chance() <= 40*global.luck_rate{

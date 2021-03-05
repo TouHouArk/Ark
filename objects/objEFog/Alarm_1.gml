@@ -1,2 +1,2 @@
-image_blend = make_color_hsv(0,0,255*pow);
+image_blend = merge_color(c_black,col,pow);
 st = true;

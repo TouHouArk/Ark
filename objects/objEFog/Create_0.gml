@@ -4,6 +4,7 @@ ed = false;
 pow = 0.5;
 spd = 0.02;
 maxalp = 1;
+col = c_white;
 alarm[0] = 120;
 alarm[1] = 1;
 image_alpha = 0;

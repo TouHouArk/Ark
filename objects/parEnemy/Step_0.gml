@@ -7,10 +7,10 @@ if lifetime != -1 && daze <= 0 && stun <= 0 && ctrl <= 0{
 if hp <= 0{
 	instance_destroy();
 }
-daze = min(sign(daze),max(daze-1,0));
-stun = min(sign(stun),max(stun-1,0));
-ctrl = min(sign(ctrl),max(ctrl-1,0));
-slow = min(sign(slow),max(slow-1,0));
+daze = max(-1,min(sign(daze)*abs(daze),max(daze-1,0)));
+stun = max(-1,min(sign(stun)*abs(stun),max(stun-1,0)));
+ctrl = max(-1,min(sign(ctrl)*abs(ctrl),max(ctrl-1,0)));
+slow = max(-1,min(sign(slow)*abs(slow),max(slow-1,0)));
 
 if daze > 0{
 	spdbuff = 0;

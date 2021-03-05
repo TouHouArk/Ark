@@ -1,0 +1,21 @@
+event_inherited();
+image_speed = 0;
+explode = false;
+aspd = choose(-8,-4,4,8);
+lifetime = objPlayer.shoot_bullet*2*room_speed/2;
+dmg = 0;
+dmgtype = damage_type.Art;
+sound = -1;
+bullet_addon_init();
+dmg_cd = room_speed/2;
+ctrl_addon = room_speed/2;
+mute_addon = room_speed/2;
+sound = -1;
+_a = 0;
+type = 0;
+range = 0.9*40;
+showrange = 0;
+
+col1 = make_color_rgb(102,44,144);
+col2 = make_color_rgb(0,204,65);
+mycol = c_white;

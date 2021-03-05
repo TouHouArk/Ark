@@ -7,5 +7,6 @@ function create_shadow(type){
 	_i.image_xscale = image_xscale;
 	_i.image_yscale = image_yscale;
 	_i.image_angle = image_angle;
+	_i.image_blend = c_gray;
 	return _i;
 }

@@ -14,11 +14,22 @@ if keyboard_check(vk_space) && _s <= 0 && !global.froze{
 		_i.auto_angle_d = -90;
 		_i.dmg = atk;
 		_i.range = range;
-		_i.sound = p_imp_grenade_n;
+		_i.sound = sound;
+	}
+	audio_play_sound(p_atk_uavvolley_n,1,false);
+	if instance_exists(objPlayer) && objPlayer.skill = 36{
+		if instance_number(objBDeepColor) <= 114{
+			var _i = instance_create_depth(x,y,depth+1,objBDeepColor);
+			_i.target = id;
+		}
 	}
 	_s = shoot_cd;
 }
 
 if _s > 0{
 	_s -= 1;
+}
+
+if !ed && image_alpha < 1{
+	image_alpha += 0.05;
 }

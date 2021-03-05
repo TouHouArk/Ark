@@ -1,7 +1,7 @@
 dmg = 0;
 high = 20;
 dmgtype = damage_type.Physic;
-sound = -1;
+sound = e_imp_general_n;
 
 aspd = 0;
 dspd = 0;

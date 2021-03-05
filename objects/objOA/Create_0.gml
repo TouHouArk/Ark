@@ -22,5 +22,3 @@ ldx2 = lengthdir_x(15,ang-90);
 ldy2 = lengthdir_y(15,ang-90);
 
 target = -1;
-
-with(objPlayer){inv = 180;}

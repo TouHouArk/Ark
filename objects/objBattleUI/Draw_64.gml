@@ -41,7 +41,7 @@ if global.showgui{
 	draw_sprite(sprUILV,0,prts_x-20,prts_y+38);
 	draw_sprite(sprUINumber,real(string_char_at(string(objPlayer.level),1)),prts_x-7,prts_y+46);
 	if objPlayer.level >= 10{
-		draw_sprite(sprUINumber,objPlayer.level mod 10,prts_x+3,prts_y+146);
+		draw_sprite(sprUINumber,objPlayer.level mod 10,prts_x+3,prts_y+46);
 	}
 	
 	//血条

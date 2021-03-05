@@ -1,3 +1,4 @@
+//移动
 if stuck <= 0 && !global.froze{
 	if keyboard_check(vk_up){
 		sprite_index = sprPlayerAmiyaUp;
@@ -27,30 +28,11 @@ if stuck <= 0 && !global.froze{
 	x = clamp(x+input_x*input_speed,global.border_left+5,global.border_right-5);
 	y = clamp(y+input_y*input_speed,global.border_up+15,global.border_down-15);
 }
-
-if (keyboard_check(vk_space) || autoattack) && _s <= 0 && disarm <= 0 && !global.froze{
-	if skill_sptype[skillselect] = sp_type.Attacked && skill = -1{
-		skill_sp[skillselect] = min(skill_sp[skillselect]+skill_spspd,skill_spneed[skillselect]);
-	}
-	if skill_casttype[skillselect] = cast_type.AutoWhenAttack{
-		event_user(1);
-	}
-	_s = shoot_cd;
-	event_user(0);
-}else if shoot_combo > 0 && (shoot_cd - _s) mod 3 = 0{
-	_s = shoot_cd;
-	event_user(0);
-	shoot_combo -= 1;
-}
-
-if _s > 0{
-	_s -= 1;
-}
-
+//不死
 if undead > 0 && hp < 1{
 	hp = 1;
 }
-
+//技能与复活
 if hp <= 0{
 	hp = 0;
 	if lifepoint > 1{
@@ -140,14 +122,42 @@ if hp <= 0{
 		}
 	}
 }
+//普通攻击
+if (keyboard_check(vk_space) || autoattack) && _s <= 0 && disarm <= 0 && !global.froze{
+	if skill_sptype[skillselect] = sp_type.Attacked && skill = -1{
+		skill_sp[skillselect] = min(skill_sp[skillselect]+skill_spspd,skill_spneed[skillselect]);
+	}
+	if skill_casttype[skillselect] = cast_type.AutoWhenAttack{
+		event_user(1);
+	}
+	_s = shoot_cd;
+	event_user(0);
+}else if shoot_combo > 0 && (shoot_cd - _s) mod 3 = 0{
+	_s = shoot_cd;
+	event_user(0);
+	shoot_combo -= 1;
+}
+
+if _s > 0{
+	_s -= 1;
+}
+//无人机复活
+if orbit_num_now < orbit_num{
+	_o += 1;
+	if _o >= orbit_respawn_cd*room_speed/2{
+		orbit_num_now += 1;
+		_o = 0;
+		orbit_refresh();
+	}
+}
+//经验值
 if xp >= xpneed && level < maxlevel{
 	level += 1;
 	xp -= xpneed;
 	level_refresh();
 	orbit_refresh();
 }
-
-
+//特殊buff
 if heal_time > 0{
 	if healling_cd = -1 || (heal_time mod healling_cd) = 0{
 		hp = min(maxhp,hp+heal);

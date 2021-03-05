@@ -53,10 +53,7 @@ combo = 0;
 dmg = 0;
 dmgtype = damage_type.Art
 
-daze_addon = 60;
-
-
-
+bullet_addon_init();
 
 sound = -1;
 

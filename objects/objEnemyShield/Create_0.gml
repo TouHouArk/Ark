@@ -4,6 +4,7 @@ defence = 150;
 resist = 20;
 lifetime = -1;
 r = 1;
+par = -1;
 
 color = make_color_rgb(50,180,200);
 color_inside = make_color_rgb(70,70,150);
